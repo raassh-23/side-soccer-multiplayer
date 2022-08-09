@@ -1,5 +1,5 @@
 {
-	"name": "Layout 1",
+	"name": "Game",
 	"layers": [
 		{
 			"name": "Layer 0",
@@ -154,13 +154,15 @@
 					"type": "Player",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "Player1",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
 					},
 					"uid": 6,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ActorNr": 0
+					},
 					"behaviors": {
 						"Platform": {
 							"properties": {
@@ -173,15 +175,162 @@
 								"double-jump": false,
 								"jump-sustain": 0,
 								"default-controls": false,
+								"enabled": false
+							}
+						},
+						"Tween": {
+							"properties": {
 								"enabled": true
 							}
 						}
 					},
 					"world": {
-						"x": 575,
-						"y": 378,
+						"x": 256,
+						"y": 554.7796636628714,
 						"width": 64,
 						"height": 128,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Camera",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 9,
+					"instanceVariables": {},
+					"behaviors": {
+						"ScrollTo": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 640,
+						"y": 360,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "PlayerSpawn",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 11,
+					"instanceVariables": {
+						"playerIndex": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 256,
+						"y": 555,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "PlayerSpawn",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 12,
+					"instanceVariables": {
+						"playerIndex": 1
+					},
+					"behaviors": {},
+					"world": {
+						"x": 2357,
+						"y": 555,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SpriteFont",
+					"properties": {
+						"text": "Loading",
+						"enable-bbcode": true,
+						"character-width": 16,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+						"spacing-data": "",
+						"scale": 2,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 16,
+					"instanceVariables": {
+						"id": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 640,
+						"y": 360,
+						"width": 280,
+						"height": 30,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -233,5 +382,5 @@
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
-	"eventSheet": "Event sheet 1"
+	"eventSheet": "Game"
 }

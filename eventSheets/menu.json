@@ -1,0 +1,30 @@
+{
+	"name": "Menu",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 865379146114068,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 762368004277955,
+					"parameters": {
+						"layout": "Game"
+					}
+				}
+			],
+			"sid": 653224476035682
+		}
+	],
+	"sid": 349048883678011
+}

@@ -31,6 +31,38 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Photon",
+			"name": "Photon",
+			"author": "Exit Games",
+			"version": "4.1.1.0",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Spritefont2",
+			"name": "Sprite font",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "solid",
 			"name": "Solid",
@@ -45,6 +77,22 @@
 			"author": "Scirra",
 			"version": "r302",
 			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "scrollto",
+			"name": "Scroll To",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
 		}
 	],
 	"uniqueId": "0e7jerna92b",
@@ -53,7 +101,14 @@
 			"Ground",
 			"Player",
 			"InputManager",
-			"Keyboard"
+			"Keyboard",
+			"Camera",
+			"Browser",
+			"PlayerSpawn",
+			"Photon",
+			"Button",
+			"Touch",
+			"SpriteFont"
 		],
 		"subfolders": []
 	},
@@ -65,14 +120,16 @@
 	},
 	"layouts": {
 		"items": [
-			"Layout 1"
+			"Game",
+			"Menu"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"Event sheet 1",
-			"Constants"
+			"Game",
+			"Constants",
+			"Menu"
 		],
 		"subfolders": []
 	},
@@ -218,12 +275,12 @@
 		"renderingMode": "auto",
 		"anisotropicFiltering": "auto",
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "splash",
+		"loaderStyle": "progress",
 		"preloadSounds": true,
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "https"
 	},
 	"viewportWidth": 1280,
 	"viewportHeight": 720,
-	"firstLayout": null
+	"firstLayout": "Menu"
 }

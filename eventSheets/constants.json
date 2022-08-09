@@ -2,6 +2,10 @@
 	"name": "Constants",
 	"events": [
 		{
+			"eventType": "comment",
+			"text": "Input Manager"
+		},
+		{
 			"eventType": "variable",
 			"name": "MOVE_LEFT",
 			"type": "string",
@@ -30,6 +34,64 @@
 			"isStatic": false,
 			"isConstant": true,
 			"sid": 885615490491761
+		},
+		{
+			"eventType": "comment",
+			"text": "tween"
+		},
+		{
+			"eventType": "variable",
+			"name": "MOVE_CAMERA",
+			"type": "string",
+			"initialValue": "move_camera",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 253817989915913
+		},
+		{
+			"eventType": "variable",
+			"name": "MOVE_PLAYER",
+			"type": "string",
+			"initialValue": "move_camera",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 907493593481990
+		},
+		{
+			"eventType": "comment",
+			"text": "Multiplayer"
+		},
+		{
+			"eventType": "variable",
+			"name": "LOBBY_NAME",
+			"type": "string",
+			"initialValue": "lobby",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 949680634840955
+		},
+		{
+			"eventType": "variable",
+			"name": "JOIN_EVENT",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 750215115550403
+		},
+		{
+			"eventType": "variable",
+			"name": "SET_POSITION_EVENT",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 462890171401554
 		}
 	],
 	"sid": 390902130002869

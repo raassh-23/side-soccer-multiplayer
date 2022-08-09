@@ -1,35 +1,36 @@
 {
-	"name": "Ground",
+	"name": "PlayerSpawn",
 	"plugin-id": "Sprite",
-	"sid": 804732322480466,
+	"sid": 777530821426456,
 	"isGlobal": false,
-	"instanceVariables": [],
-	"behaviorTypes": [
+	"instanceVariables": [
 		{
-			"behaviorId": "solid",
-			"name": "Solid",
-			"sid": 497260646257391
+			"name": "playerIndex",
+			"type": "number",
+			"desc": "",
+			"sid": 809163366262743
 		}
 	],
+	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
+						"width": 64,
+						"height": 64,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 4657563,
+						"imageSpriteId": 6834525,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 714659004960269,
+				"sid": 173530435332377,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

@@ -1,0 +1,930 @@
+{
+	"name": "Game",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "playerCount",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 663591650528643
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "isdown0",
+					"objectClass": "InputManager",
+					"sid": 127672842991733,
+					"parameters": {
+						"input0": "MOVE_LEFT"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "Player",
+					"sid": 667328626740938,
+					"behaviorType": "Platform",
+					"parameters": {
+						"control": "left"
+					}
+				}
+			],
+			"sid": 505122752673959
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "isdown0",
+					"objectClass": "InputManager",
+					"sid": 693293952090934,
+					"parameters": {
+						"input0": "MOVE_RIGHT"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "Player",
+					"sid": 477002827253118,
+					"behaviorType": "Platform",
+					"parameters": {
+						"control": "right"
+					}
+				}
+			],
+			"sid": 455959086886622
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "ondown1",
+					"objectClass": "InputManager",
+					"sid": 233308563986985,
+					"parameters": {
+						"input0": "JUMP"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "Player",
+					"sid": 228658121022483,
+					"behaviorType": "Platform",
+					"parameters": {
+						"control": "jump"
+					}
+				}
+			],
+			"sid": 583973034391517
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Keyboard Input",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 937834703153259,
+							"parameters": {
+								"key": 65
+							}
+						},
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 410436565661993,
+							"parameters": {
+								"key": 37
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "setdown6",
+							"objectClass": "InputManager",
+							"sid": 915837852371405,
+							"parameters": {
+								"input0": "MOVE_LEFT"
+							}
+						}
+					],
+					"sid": 553703821078940,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-released",
+							"objectClass": "Keyboard",
+							"sid": 865061907314651,
+							"parameters": {
+								"key": 65
+							}
+						},
+						{
+							"id": "on-key-released",
+							"objectClass": "Keyboard",
+							"sid": 838347948158018,
+							"parameters": {
+								"key": 37
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "setup5",
+							"objectClass": "InputManager",
+							"sid": 165111211162524,
+							"parameters": {
+								"input0": "MOVE_LEFT"
+							}
+						}
+					],
+					"sid": 972321876000425,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 529035744700043,
+							"parameters": {
+								"key": 68
+							}
+						},
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 183780007192595,
+							"parameters": {
+								"key": 39
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "setdown6",
+							"objectClass": "InputManager",
+							"sid": 323163538178171,
+							"parameters": {
+								"input0": "MOVE_RIGHT"
+							}
+						}
+					],
+					"sid": 312841584884252,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-released",
+							"objectClass": "Keyboard",
+							"sid": 201758893083994,
+							"parameters": {
+								"key": 68
+							}
+						},
+						{
+							"id": "on-key-released",
+							"objectClass": "Keyboard",
+							"sid": 488946664514796,
+							"parameters": {
+								"key": 39
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "setup5",
+							"objectClass": "InputManager",
+							"sid": 710872779177110,
+							"parameters": {
+								"input0": "MOVE_RIGHT"
+							}
+						}
+					],
+					"sid": 636285683604227,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 109318237053165,
+							"parameters": {
+								"key": 87
+							}
+						},
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 792469351236649,
+							"parameters": {
+								"key": 38
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "setdown6",
+							"objectClass": "InputManager",
+							"sid": 599120784150687,
+							"parameters": {
+								"input0": "JUMP"
+							}
+						}
+					],
+					"sid": 486945286570703,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-released",
+							"objectClass": "Keyboard",
+							"sid": 143158756011901,
+							"parameters": {
+								"key": 87
+							}
+						},
+						{
+							"id": "on-key-released",
+							"objectClass": "Keyboard",
+							"sid": 691928695265240,
+							"parameters": {
+								"key": 38
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "setup5",
+							"objectClass": "InputManager",
+							"sid": 835071462660507,
+							"parameters": {
+								"input0": "JUMP"
+							}
+						}
+					],
+					"sid": 265465461323756,
+					"isOrBlock": true
+				}
+			],
+			"sid": 657433841182705
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Camera",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "FollowedPlayerUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 501988516910714
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 586594922479391
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 192130734167280,
+							"parameters": {
+								"variable": "FollowedPlayerUID",
+								"value": "Player.UID"
+							}
+						}
+					],
+					"sid": 987427475289408
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 378612289167704
+						},
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 189123029578692,
+							"parameters": {
+								"object": "Player",
+								"expression": "Player.UID",
+								"comparison": 0,
+								"value": "FollowedPlayerUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Camera",
+							"sid": 429532229605487,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "MOVE_CAMERA",
+								"property": "position",
+								"end-x": "Player.X",
+								"end-y": "Player.Y",
+								"time": "0.05",
+								"ease": "easeinsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 759630009878545
+				},
+				{
+					"functionName": "setFollowedPlayer",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "uid",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 883766702424992
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 432589099394456,
+							"parameters": {
+								"variable": "FollowedPlayerUID",
+								"value": "uid"
+							}
+						}
+					],
+					"sid": 630908294658674
+				}
+			],
+			"sid": 363457410791867
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Player",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "Player",
+							"sid": 575795482394370,
+							"behaviorType": "Platform"
+						}
+					],
+					"actions": [],
+					"sid": 467508203582250,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 394051153813738,
+									"parameters": {
+										"first-value": "Player.Platform.VectorX",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "Player",
+									"sid": 957018501857202,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								}
+							],
+							"sid": 332676257120659
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 641003867402034,
+									"parameters": {
+										"first-value": "Player.Platform.VectorX",
+										"comparison": 2,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "Player",
+									"sid": 349083228041972,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 111374508913661
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 307947735381321
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 575335072560961,
+							"parameters": {
+								"instance-variable": "ActorNr",
+								"comparison": 0,
+								"value": "Photon.MyActorNr"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "raiseevent17",
+							"objectClass": "Photon",
+							"sid": 643552566417349,
+							"parameters": {
+								"code0": "SET_POSITION_EVENT",
+								"data1": "Player.X & \";\" & Player.Y & (Player.Width > 0 ? \";0\" : \";1\")",
+								"interestgroup2": "0",
+								"cache11": "donotcache",
+								"receivers15": "others",
+								"targetactors16": "\"\"",
+								"webforward19": "no"
+							}
+						}
+					],
+					"sid": 954845248410397
+				}
+			],
+			"sid": 804186949797764
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Multiplayer",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 899297698265774
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Player",
+							"sid": 873547983155374
+						},
+						{
+							"id": "connect10",
+							"objectClass": "Photon",
+							"sid": 315759849198164
+						}
+					],
+					"sid": 334760787189677
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onjoinedlobby22",
+							"objectClass": "Photon",
+							"sid": 710727890802367
+						}
+					],
+					"actions": [
+						{
+							"id": "joinrandomroom13",
+							"objectClass": "Photon",
+							"sid": 440890938724618,
+							"parameters": {
+								"matchmyroom2": "yes",
+								"matchmakingmode6": "fillroom",
+								"lobbyname7": "LOBBY_NAME",
+								"lobbytype10": "default",
+								"sqllobbyfilter11": "\"\""
+							}
+						}
+					],
+					"sid": 774416873299219
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onjoinrandomroomnomatchfound23",
+							"objectClass": "Photon",
+							"sid": 412734666874362
+						}
+					],
+					"actions": [
+						{
+							"id": "createroom11",
+							"objectClass": "Photon",
+							"sid": 263136695582411,
+							"parameters": {
+								"room0": "\"test\"&floor(1000)",
+								"lobbyname1": "LOBBY_NAME",
+								"lobbytype4": "default"
+							}
+						},
+						{
+							"id": "setmyroommaxplayers107",
+							"objectClass": "Photon",
+							"sid": 544922146727497,
+							"parameters": {
+								"maxplayers0": "2"
+							}
+						}
+					],
+					"sid": 301682721335489
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onjoinroom14",
+							"objectClass": "Photon",
+							"sid": 325996264609941
+						}
+					],
+					"actions": [
+						{
+							"id": "raiseevent17",
+							"objectClass": "Photon",
+							"sid": 194946620605030,
+							"parameters": {
+								"code0": "JOIN_EVENT",
+								"data1": "0",
+								"interestgroup2": "0",
+								"cache11": "addtoroomcache",
+								"receivers15": "all",
+								"targetactors16": "\"\"",
+								"webforward19": "no"
+							}
+						}
+					],
+					"sid": 744226411074785,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "SpriteFont",
+									"sid": 353505530803380,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "SpriteFont",
+									"sid": 654781808801910,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 494788014050402
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onerror0",
+							"objectClass": "Photon",
+							"sid": 154509600771649
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 491879443253273,
+							"parameters": {
+								"layout": "Menu"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 149578704634924,
+							"parameters": {
+								"type": "log",
+								"message": "\"Join Error \" & Photon.ErrorMessage"
+							}
+						}
+					],
+					"sid": 320171985021624
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onevent3",
+							"objectClass": "Photon",
+							"sid": 244019432394105,
+							"parameters": {
+								"code0": "JOIN_EVENT"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 502832603036773,
+							"parameters": {
+								"variable": "JOIN_EVENT",
+								"comparison": 2,
+								"value": "2"
+							}
+						},
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 481810776027505,
+							"parameters": {
+								"object": "PlayerSpawn",
+								"expression": "PlayerSpawn.playerIndex",
+								"comparison": 0,
+								"value": "playerCount"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "PlayerSpawn",
+							"sid": 417249237815817,
+							"parameters": {
+								"object": "Player",
+								"layer": "0",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 408702048742569,
+							"parameters": {
+								"instance-variable": "ActorNr",
+								"value": "Photon.ActorNr"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 983166513039597,
+							"parameters": {
+								"variable": "playerCount",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 251947446317825,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player",
+									"sid": 493912123808102,
+									"parameters": {
+										"instance-variable": "ActorNr",
+										"comparison": 0,
+										"value": "Photon.MyActorNr"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "setFollowedPlayer",
+									"sid": 432644392489352,
+									"parameters": [
+										"Player.UID"
+									]
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Player",
+									"sid": 856056389375824,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 843334615121882
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onevent3",
+							"objectClass": "Photon",
+							"sid": 225163684026207,
+							"parameters": {
+								"code0": "SET_POSITION_EVENT"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 471285517983387,
+							"parameters": {
+								"instance-variable": "ActorNr",
+								"comparison": 0,
+								"value": "Photon.ActorNr"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Player",
+							"sid": 564636496483457,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "MOVE_PLAYER",
+								"property": "position",
+								"end-x": "int(tokenat(Photon.EventData, 0, \";\"))",
+								"end-y": "int(tokenat(Photon.EventData, 1, \";\"))",
+								"time": "0.05",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Player",
+							"sid": 310509206916953,
+							"disabled": true,
+							"parameters": {
+								"x": "int(tokenat(Photon.EventData, 0, \";\"))",
+								"y": "int(tokenat(Photon.EventData, 1, \";\"))"
+							}
+						}
+					],
+					"sid": 801864043365070,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "evaluate-expression",
+									"objectClass": "System",
+									"sid": 790819998136217,
+									"parameters": {
+										"value": "int(tokenat(Photon.EventData, 2, \";\"))"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "Player",
+									"sid": 501746716992775,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 200307904832848
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 892454054644114
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "Player",
+									"sid": 561311959320409,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								}
+							],
+							"sid": 432098332844199
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onactorleave16",
+							"objectClass": "Photon",
+							"sid": 969914265560959
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 804300721636823,
+							"parameters": {
+								"instance-variable": "ActorNr",
+								"comparison": 0,
+								"value": "Photon.MyActorNr"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Player",
+							"sid": 709712521459358
+						}
+					],
+					"sid": 909017629438664
+				}
+			],
+			"sid": 942916712965782
+		}
+	],
+	"sid": 219985874213153
+}

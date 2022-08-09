@@ -3,12 +3,24 @@
 	"plugin-id": "Sprite",
 	"sid": 335523789690812,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "ActorNr",
+			"type": "number",
+			"desc": "",
+			"sid": 503605387812245
+		}
+	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "Platform",
 			"name": "Platform",
 			"sid": 714105483790000
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 922055741162846
 		}
 	],
 	"effectTypes": [],
@@ -30,7 +42,30 @@
 					}
 				],
 				"sid": 736667517162351,
-				"name": "Animation 1",
+				"name": "Player1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 128,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9745212,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 279688141219915,
+				"name": "Player2",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

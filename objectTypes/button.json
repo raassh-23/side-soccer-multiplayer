@@ -1,35 +1,41 @@
 {
-	"name": "Ground",
+	"name": "Button",
 	"plugin-id": "Sprite",
-	"sid": 804732322480466,
+	"sid": 821916304144799,
 	"isGlobal": false,
 	"instanceVariables": [],
-	"behaviorTypes": [
-		{
-			"behaviorId": "solid",
-			"name": "Solid",
-			"sid": 497260646257391
-		}
-	],
+	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
+						"width": 512,
+						"height": 128,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 4657563,
+						"imageSpriteId": 3696729,
+						"collisionPoly": {
+							"points": [
+								0.255859375,
+								0,
+								0.744140625,
+								0,
+								0.744140625,
+								1,
+								0.255859375,
+								1
+							]
+						},
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 714659004960269,
+				"sid": 235555264380165,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,
