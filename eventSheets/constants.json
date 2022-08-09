@@ -1,0 +1,36 @@
+{
+	"name": "Constants",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "MOVE_LEFT",
+			"type": "string",
+			"initialValue": "move_left",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 637090741286404
+		},
+		{
+			"eventType": "variable",
+			"name": "MOVE_RIGHT",
+			"type": "string",
+			"initialValue": "move_right",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 838146696870871
+		},
+		{
+			"eventType": "variable",
+			"name": "JUMP",
+			"type": "string",
+			"initialValue": "jump",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 885615490491761
+		}
+	],
+	"sid": 390902130002869
+}

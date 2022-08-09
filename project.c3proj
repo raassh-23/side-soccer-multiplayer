@@ -1,14 +1,60 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 27602,
+	"savedWithRelease": 30200,
 	"name": "NewProject",
 	"runtime": "c3",
 	"useWorker": "auto",
 	"bundleAddons": false,
-	"usedAddons": [],
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "SkymenInputManager",
+			"name": "Input Manager",
+			"author": "skymen",
+			"version": "1.0.0.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "solid",
+			"name": "Solid",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Platform",
+			"name": "Platform",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		}
+	],
 	"uniqueId": "0e7jerna92b",
 	"objectTypes": {
-		"items": [],
+		"items": [
+			"Ground",
+			"Player",
+			"InputManager",
+			"Keyboard"
+		],
 		"subfolders": []
 	},
 	"autosaveData": null,
@@ -25,7 +71,8 @@
 	},
 	"eventSheets": {
 		"items": [
-			"Event sheet 1"
+			"Event sheet 1",
+			"Constants"
 		],
 		"subfolders": []
 	},
@@ -135,6 +182,8 @@
 		"authorWebsite": "",
 		"appId": "",
 		"pixelRounding": false,
+		"zAxisScale": "normalized",
+		"fov": 0.7853981633974483,
 		"useLoaderLayout": false,
 		"fullscreenMode": "letterbox-scale",
 		"fullscreenQuality": "high",
