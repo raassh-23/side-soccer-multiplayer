@@ -11,7 +11,13 @@
 			"sid": 989894932315141
 		}
 	],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 824877007964959
+		}
+	],
 	"effectTypes": [],
 	"image": {
 		"width": 128,

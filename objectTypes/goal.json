@@ -1,21 +1,17 @@
 {
-	"name": "Ground",
+	"name": "Goal",
 	"plugin-id": "Sprite",
-	"sid": 804732322480466,
+	"sid": 882305993056035,
 	"isGlobal": false,
-	"instanceVariables": [],
-	"behaviorTypes": [
+	"instanceVariables": [
 		{
-			"behaviorId": "solid",
-			"name": "Solid",
-			"sid": 497260646257391
-		},
-		{
-			"behaviorId": "Physics",
-			"name": "Physics",
-			"sid": 366213578166519
+			"name": "playerIndex",
+			"type": "number",
+			"desc": "",
+			"sid": 798509111991463
 		}
 	],
+	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
 		"items": [
@@ -29,12 +25,12 @@
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 4657563,
+						"imageSpriteId": 6890081,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 714659004960269,
+				"sid": 387047865031153,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

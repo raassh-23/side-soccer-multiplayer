@@ -1,40 +1,29 @@
 {
-	"name": "Ground",
+	"name": "BallArrow",
 	"plugin-id": "Sprite",
-	"sid": 804732322480466,
+	"sid": 719496343828650,
 	"isGlobal": false,
 	"instanceVariables": [],
-	"behaviorTypes": [
-		{
-			"behaviorId": "solid",
-			"name": "Solid",
-			"sid": 497260646257391
-		},
-		{
-			"behaviorId": "Physics",
-			"name": "Physics",
-			"sid": 366213578166519
-		}
-	],
+	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
-						"originX": 0.5,
+						"width": 32,
+						"height": 40,
+						"originX": -3.90625,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 4657563,
+						"imageSpriteId": 9522887,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 714659004960269,
+				"sid": 888979850956592,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

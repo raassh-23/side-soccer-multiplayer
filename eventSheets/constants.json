@@ -27,6 +27,26 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "LOOK_UP",
+			"type": "string",
+			"initialValue": "look_up",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 211735132222085
+		},
+		{
+			"eventType": "variable",
+			"name": "LOOK_DOWN",
+			"type": "string",
+			"initialValue": "look_down",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 243326298393576
+		},
+		{
+			"eventType": "variable",
 			"name": "JUMP",
 			"type": "string",
 			"initialValue": "jump",
@@ -34,6 +54,16 @@
 			"isStatic": false,
 			"isConstant": true,
 			"sid": 885615490491761
+		},
+		{
+			"eventType": "variable",
+			"name": "KICK",
+			"type": "string",
+			"initialValue": "kick",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 453914912029751
 		},
 		{
 			"eventType": "comment",
@@ -92,6 +122,36 @@
 			"isStatic": false,
 			"isConstant": true,
 			"sid": 462890171401554
+		},
+		{
+			"eventType": "variable",
+			"name": "KICK_EVENT",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 716525192552374
+		},
+		{
+			"eventType": "variable",
+			"name": "START_GAME_EVENT",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 732943180202761
+		},
+		{
+			"eventType": "variable",
+			"name": "GOAL_EVENT",
+			"type": "number",
+			"initialValue": "4",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 101537710071319
 		}
 	],
 	"sid": 390902130002869

@@ -2,84 +2,9 @@
 	"name": "Game",
 	"events": [
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "isdown0",
-					"objectClass": "InputManager",
-					"sid": 127672842991733,
-					"parameters": {
-						"input0": "MOVE_LEFT"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "simulate-control",
-					"objectClass": "Player",
-					"sid": 667328626740938,
-					"behaviorType": "Platform",
-					"parameters": {
-						"control": "left"
-					}
-				}
-			],
-			"sid": 505122752673959
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "isdown0",
-					"objectClass": "InputManager",
-					"sid": 693293952090934,
-					"parameters": {
-						"input0": "MOVE_RIGHT"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "simulate-control",
-					"objectClass": "Player",
-					"sid": 477002827253118,
-					"behaviorType": "Platform",
-					"parameters": {
-						"control": "right"
-					}
-				}
-			],
-			"sid": 455959086886622
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "ondown1",
-					"objectClass": "InputManager",
-					"sid": 233308563986985,
-					"parameters": {
-						"input0": "JUMP"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "simulate-control",
-					"objectClass": "Player",
-					"sid": 228658121022483,
-					"behaviorType": "Platform",
-					"parameters": {
-						"control": "jump"
-					}
-				}
-			],
-			"sid": 583973034391517
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Keyboard Input",
+			"title": "Input",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -87,17 +12,238 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-key-pressed",
+							"id": "isdown0",
+							"objectClass": "InputManager",
+							"sid": 925814633747925,
+							"parameters": {
+								"input0": "MOVE_LEFT"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 930917147250849,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "left"
+							}
+						},
+						{
+							"callFunction": "setArrowLeftRight",
+							"sid": 293208873644009,
+							"parameters": [
+								"-1"
+							]
+						}
+					],
+					"sid": 989691510724158
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "isdown0",
+							"objectClass": "InputManager",
+							"sid": 348205403335746,
+							"parameters": {
+								"input0": "MOVE_RIGHT"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 325686635324639,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "right"
+							}
+						},
+						{
+							"callFunction": "setArrowLeftRight",
+							"sid": 379803251608814,
+							"parameters": [
+								"1"
+							]
+						}
+					],
+					"sid": 527177078381020
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "isdown0",
+							"objectClass": "InputManager",
+							"sid": 536595634395886,
+							"parameters": {
+								"input0": "MOVE_LEFT"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "isdown0",
+							"objectClass": "InputManager",
+							"sid": 976931586126247,
+							"parameters": {
+								"input0": "MOVE_RIGHT"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "setArrowLeftRight",
+							"sid": 156894740508048,
+							"parameters": [
+								"0"
+							]
+						}
+					],
+					"sid": 957606161727064
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "isdown0",
+							"objectClass": "InputManager",
+							"sid": 499695190078746,
+							"parameters": {
+								"input0": "LOOK_UP"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "setArrowUpDown",
+							"sid": 903277190840575,
+							"parameters": [
+								"-1"
+							]
+						}
+					],
+					"sid": 578797691841143
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "isdown0",
+							"objectClass": "InputManager",
+							"sid": 813016764799485,
+							"parameters": {
+								"input0": "LOOK_DOWN"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "setArrowUpDown",
+							"sid": 726494383680675,
+							"parameters": [
+								"1"
+							]
+						}
+					],
+					"sid": 812313302299512
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "isdown0",
+							"objectClass": "InputManager",
+							"sid": 907185338900065,
+							"parameters": {
+								"input0": "LOOK_UP"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "isdown0",
+							"objectClass": "InputManager",
+							"sid": 826667883411806,
+							"parameters": {
+								"input0": "LOOK_DOWN"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "setArrowUpDown",
+							"sid": 875750190060657,
+							"parameters": [
+								"0"
+							]
+						}
+					],
+					"sid": 932685992145151
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "ondown1",
+							"objectClass": "InputManager",
+							"sid": 128156291620221,
+							"parameters": {
+								"input0": "JUMP"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 375585573680367,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "jump"
+							}
+						}
+					],
+					"sid": 690329245863251
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "ondown1",
+							"objectClass": "InputManager",
+							"sid": 403776924304641,
+							"parameters": {
+								"input0": "KICK"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "kickBall",
+							"sid": 827515412233246
+						}
+					],
+					"sid": 627216618599503
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
 							"objectClass": "Keyboard",
-							"sid": 937834703153259,
+							"sid": 184733220991703,
 							"parameters": {
 								"key": 65
 							}
 						},
 						{
-							"id": "on-key-pressed",
+							"id": "key-is-down",
 							"objectClass": "Keyboard",
-							"sid": 410436565661993,
+							"sid": 376960765141609,
 							"parameters": {
 								"key": 37
 							}
@@ -120,50 +266,38 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-key-released",
-							"objectClass": "Keyboard",
-							"sid": 865061907314651,
-							"parameters": {
-								"key": 65
-							}
-						},
-						{
-							"id": "on-key-released",
-							"objectClass": "Keyboard",
-							"sid": 838347948158018,
-							"parameters": {
-								"key": 37
-							}
+							"id": "else",
+							"objectClass": "System",
+							"sid": 203480403219705
 						}
 					],
 					"actions": [
 						{
 							"id": "setup5",
 							"objectClass": "InputManager",
-							"sid": 165111211162524,
+							"sid": 667872617953001,
 							"parameters": {
 								"input0": "MOVE_LEFT"
 							}
 						}
 					],
-					"sid": 972321876000425,
-					"isOrBlock": true
+					"sid": 145181097498774
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-key-pressed",
+							"id": "key-is-down",
 							"objectClass": "Keyboard",
-							"sid": 529035744700043,
+							"sid": 666030758139825,
 							"parameters": {
 								"key": 68
 							}
 						},
 						{
-							"id": "on-key-pressed",
+							"id": "key-is-down",
 							"objectClass": "Keyboard",
-							"sid": 183780007192595,
+							"sid": 853616947794491,
 							"parameters": {
 								"key": 39
 							}
@@ -186,52 +320,148 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-key-released",
-							"objectClass": "Keyboard",
-							"sid": 201758893083994,
-							"parameters": {
-								"key": 68
-							}
-						},
-						{
-							"id": "on-key-released",
-							"objectClass": "Keyboard",
-							"sid": 488946664514796,
-							"parameters": {
-								"key": 39
-							}
+							"id": "else",
+							"objectClass": "System",
+							"sid": 976135971321091
 						}
 					],
 					"actions": [
 						{
 							"id": "setup5",
 							"objectClass": "InputManager",
-							"sid": 710872779177110,
+							"sid": 343381987735393,
 							"parameters": {
 								"input0": "MOVE_RIGHT"
 							}
 						}
 					],
-					"sid": 636285683604227,
+					"sid": 911582881950145
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 269396285968100,
+							"parameters": {
+								"key": 87
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 483295504541212,
+							"parameters": {
+								"key": 38
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "setdown6",
+							"objectClass": "InputManager",
+							"sid": 909875828301089,
+							"parameters": {
+								"input0": "LOOK_UP"
+							}
+						}
+					],
+					"sid": 291497885742058,
 					"isOrBlock": true
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 109318237053165,
+							"id": "else",
+							"objectClass": "System",
+							"sid": 754707085798625
+						}
+					],
+					"actions": [
+						{
+							"id": "setup5",
+							"objectClass": "InputManager",
+							"sid": 863582234658055,
 							"parameters": {
-								"key": 87
+								"input0": "LOOK_UP"
+							}
+						}
+					],
+					"sid": 407560785222657
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 446400714437499,
+							"parameters": {
+								"key": 83
 							}
 						},
 						{
-							"id": "on-key-pressed",
+							"id": "key-is-down",
 							"objectClass": "Keyboard",
-							"sid": 792469351236649,
+							"sid": 293211599913975,
 							"parameters": {
-								"key": 38
+								"key": 40
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "setdown6",
+							"objectClass": "InputManager",
+							"sid": 152756402835610,
+							"parameters": {
+								"input0": "LOOK_DOWN"
+							}
+						}
+					],
+					"sid": 768029818960863,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 684601196602660
+						}
+					],
+					"actions": [
+						{
+							"id": "setup5",
+							"objectClass": "InputManager",
+							"sid": 288844393516690,
+							"parameters": {
+								"input0": "LOOK_DOWN"
+							}
+						}
+					],
+					"sid": 354720420712916
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 197741890766443,
+							"parameters": {
+								"key": 90
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 157928166581306,
+							"parameters": {
+								"key": 79
 							}
 						}
 					],
@@ -252,34 +482,76 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-key-released",
-							"objectClass": "Keyboard",
-							"sid": 143158756011901,
-							"parameters": {
-								"key": 87
-							}
-						},
-						{
-							"id": "on-key-released",
-							"objectClass": "Keyboard",
-							"sid": 691928695265240,
-							"parameters": {
-								"key": 38
-							}
+							"id": "else",
+							"objectClass": "System",
+							"sid": 397532472246021
 						}
 					],
 					"actions": [
 						{
 							"id": "setup5",
 							"objectClass": "InputManager",
-							"sid": 835071462660507,
+							"sid": 617041677510966,
 							"parameters": {
 								"input0": "JUMP"
 							}
 						}
 					],
-					"sid": 265465461323756,
+					"sid": 883876902077117
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 202138590896265,
+							"parameters": {
+								"key": 88
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 507173922590976,
+							"parameters": {
+								"key": 80
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "setdown6",
+							"objectClass": "InputManager",
+							"sid": 852173343860930,
+							"parameters": {
+								"input0": "KICK"
+							}
+						}
+					],
+					"sid": 576854504840005,
 					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 262792538235867
+						}
+					],
+					"actions": [
+						{
+							"id": "setup5",
+							"objectClass": "InputManager",
+							"sid": 567648458126320,
+							"parameters": {
+								"input0": "KICK"
+							}
+						}
+					],
+					"sid": 557371376936762
 				}
 			],
 			"sid": 657433841182705
@@ -480,11 +752,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 307947735381321
-						},
-						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player",
 							"sid": 575335072560961,
@@ -511,10 +778,83 @@
 							}
 						}
 					],
-					"sid": 954845248410397
+					"sid": 954845248410397,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Player",
+									"sid": 190996716049065,
+									"parameters": {
+										"object": "BallArea"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "BallArea",
+									"sid": 200083782289077,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "BallArrow",
+									"sid": 815220645843796,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 533499558503378
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 271575519638730
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "BallArea",
+									"sid": 394815753105311,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "BallArrow",
+									"sid": 210840164902951,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 497021120990537
+						}
+					]
 				}
 			],
 			"sid": 804186949797764
+		},
+		{
+			"eventType": "variable",
+			"name": "gameStarted",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 731454081363244
 		},
 		{
 			"eventType": "group",
@@ -525,13 +865,23 @@
 			"children": [
 				{
 					"eventType": "variable",
-					"name": "playerCount",
+					"name": "player1Score",
 					"type": "number",
 					"initialValue": "0",
 					"comment": "",
 					"isStatic": true,
 					"isConstant": false,
-					"sid": 311754844199261
+					"sid": 584221424570610
+				},
+				{
+					"eventType": "variable",
+					"name": "player2Score",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 357556278389408
 				},
 				{
 					"eventType": "block",
@@ -657,9 +1007,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "SpriteFont",
-									"sid": 504604136722721,
+									"sid": 576162509904415,
 									"parameters": {
-										"text": "\"Waiting player\""
+										"text": "\"Waiting for the other player\""
 									}
 								}
 							],
@@ -711,11 +1061,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "PlayerSpawn",
-							"sid": 405626699820144,
+							"sid": 458406577101793,
 							"parameters": {
 								"instance-variable": "playerIndex",
 								"comparison": 0,
-								"value": "playerCount"
+								"value": "Photon.ActorNr - 1"
 							}
 						}
 					],
@@ -723,7 +1073,7 @@
 						{
 							"id": "spawn-another-object",
 							"objectClass": "PlayerSpawn",
-							"sid": 811445703918012,
+							"sid": 650838224275300,
 							"parameters": {
 								"object": "Player",
 								"layer": "0",
@@ -734,7 +1084,7 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Player",
-							"sid": 377911846220815,
+							"sid": 973751288550634,
 							"parameters": {
 								"instance-variable": "ActorNr",
 								"value": "Photon.ActorNr"
@@ -743,19 +1093,10 @@
 						{
 							"id": "set-animation",
 							"objectClass": "Player",
-							"sid": 449386054462539,
+							"sid": 639947337101991,
 							"parameters": {
-								"animation": "\"Player\"&playerCount+1",
+								"animation": "\"Player\"&Photon.ActorNr",
 								"from": "beginning"
-							}
-						},
-						{
-							"id": "add-to-eventvar",
-							"objectClass": "System",
-							"sid": 929389218197703,
-							"parameters": {
-								"variable": "playerCount",
-								"value": "1"
 							}
 						}
 					],
@@ -765,23 +1106,33 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-eventvar",
+									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 892179295657961,
+									"sid": 272615072234036,
 									"parameters": {
-										"variable": "playerCount",
+										"first-value": "Photon.ActorNr",
 										"comparison": 5,
-										"value": "2"
+										"second-value": "2"
 									}
 								}
 							],
 							"actions": [
 								{
-									"callFunction": "startGame",
-									"sid": 827772291120727
+									"id": "raiseevent17",
+									"objectClass": "Photon",
+									"sid": 787807280747073,
+									"parameters": {
+										"code0": "START_GAME_EVENT",
+										"data1": "0",
+										"interestgroup2": "0",
+										"cache11": "donotcache",
+										"receivers15": "all",
+										"targetactors16": "\"\"",
+										"webforward19": "no"
+									}
 								}
 							],
-							"sid": 521276722833395
+							"sid": 214481207979206
 						}
 					]
 				},
@@ -811,13 +1162,13 @@
 						{
 							"id": "tween-two-properties",
 							"objectClass": "Player",
-							"sid": 516266168731572,
+							"sid": 832807314704619,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "MOVE_PLAYER",
 								"property": "position",
-								"end-x": "int(tokenat(Photon.EventData, 0, \";\"))",
-								"end-y": "int(tokenat(Photon.EventData, 1, \";\"))",
+								"end-x": "float(tokenat(Photon.EventData, 0, \";\"))",
+								"end-y": "float(tokenat(Photon.EventData, 1, \";\"))",
 								"time": "0.05",
 								"ease": "default",
 								"destroy-on-complete": "no",
@@ -879,6 +1230,193 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "onevent3",
+							"objectClass": "Photon",
+							"sid": 514514330255999,
+							"parameters": {
+								"code0": "KICK_EVENT"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-velocity",
+							"objectClass": "Ball",
+							"sid": 880948644453606,
+							"behaviorType": "Physics",
+							"parameters": {
+								"x-component": "0",
+								"y-component": "0"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Ball",
+							"sid": 166800412603478,
+							"parameters": {
+								"x": "float(tokenat(Photon.EventData, 0, \";\"))",
+								"y": "float(tokenat(Photon.EventData, 1, \";\"))"
+							}
+						},
+						{
+							"id": "apply-impulse-at-angle",
+							"objectClass": "Ball",
+							"sid": 306559116580930,
+							"behaviorType": "Physics",
+							"parameters": {
+								"impulse": "float(tokenat(Photon.EventData, 2, \";\"))",
+								"angle": "float(tokenat(Photon.EventData, 3, \";\"))",
+								"image-point": "0"
+							}
+						}
+					],
+					"sid": 231170932319683
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onevent3",
+							"objectClass": "Photon",
+							"sid": 609261604176262,
+							"parameters": {
+								"code0": "GOAL_EVENT"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "SpriteFont",
+							"sid": 221946489679612,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 906313529753426,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 966497624601451,
+									"parameters": {
+										"first-value": "int(Photon.EventData)",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 242812399872092,
+									"parameters": {
+										"variable": "player1Score",
+										"value": "1"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 291734132386906,
+									"parameters": {
+										"type": "log",
+										"message": "\"player 1 goal\""
+									}
+								}
+							],
+							"sid": 929020010627887
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 775177483155538
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 550698663772517,
+									"parameters": {
+										"variable": "player2Score",
+										"value": "1"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 145397355838452,
+									"parameters": {
+										"type": "log",
+										"message": "\"player 2 goal\""
+									}
+								}
+							],
+							"sid": 738958031811645
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "start-fade",
+									"objectClass": "SpriteFont",
+									"sid": 933310311741151,
+									"behaviorType": "Fade"
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 847443602362910,
+									"parameters": {
+										"seconds": "0.25"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Ball",
+									"sid": 403200294553438
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 741026732860719,
+									"parameters": {
+										"seconds": "0.75"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 567954977347318,
+									"parameters": {
+										"object-to-create": "Ball",
+										"layer": "0",
+										"x": "LayoutWidth/2",
+										"y": "LayoutHeight/2",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 168810868765294
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "onactorleave16",
 							"objectClass": "Photon",
 							"sid": 644972196349628
@@ -896,9 +1434,12 @@
 					],
 					"actions": [
 						{
-							"id": "destroy",
-							"objectClass": "Player",
-							"sid": 922688025512155
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 496226410593650,
+							"parameters": {
+								"layout": "Menu"
+							}
 						}
 					],
 					"sid": 776560653133113
@@ -921,13 +1462,39 @@
 						{
 							"id": "set-text",
 							"objectClass": "SpriteFont",
-							"sid": 773816455293741,
+							"sid": 745474504679915,
 							"parameters": {
-								"text": "Photon.MyRoomName"
+								"text": "\"Room Code: \" & Photon.MyRoomName"
 							}
 						}
 					],
 					"sid": 934717320145466
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "SpriteFont",
+							"sid": 992936055750756,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "SpriteFont",
+							"sid": 327268426824331,
+							"parameters": {
+								"text": "player1Score & \"-\" & player2Score"
+							}
+						}
+					],
+					"sid": 934000265651841
 				},
 				{
 					"functionName": "generateRoomName",
@@ -955,18 +1522,29 @@
 					"sid": 627842905611567
 				},
 				{
-					"functionName": "startGame",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "function-block",
+					"eventType": "block",
 					"conditions": [
+						{
+							"id": "onevent3",
+							"objectClass": "Photon",
+							"sid": 295246249578772,
+							"parameters": {
+								"code0": "START_GAME_EVENT"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 652833891545729,
+							"parameters": {
+								"variable": "gameStarted"
+							},
+							"isInverted": true
+						},
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "SpriteFont",
-							"sid": 460208313808924,
+							"sid": 241935022292952,
 							"parameters": {
 								"instance-variable": "id",
 								"comparison": 0,
@@ -976,9 +1554,36 @@
 					],
 					"actions": [
 						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 834379176399989,
+							"parameters": {
+								"variable": "gameStarted",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 677007345694419,
+							"parameters": {
+								"variable": "player1Score",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 154137543640308,
+							"parameters": {
+								"variable": "player2Score",
+								"value": "0"
+							}
+						},
+						{
 							"id": "set-text",
 							"objectClass": "SpriteFont",
-							"sid": 115342169358636,
+							"sid": 759493923758459,
 							"parameters": {
 								"text": "\"Starting in 3\""
 							}
@@ -986,7 +1591,7 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 392970302947959,
+							"sid": 414578187488671,
 							"parameters": {
 								"seconds": "1.0"
 							}
@@ -994,7 +1599,7 @@
 						{
 							"id": "set-text",
 							"objectClass": "SpriteFont",
-							"sid": 382019475851562,
+							"sid": 365647460691172,
 							"parameters": {
 								"text": "\"Starting in 2\""
 							}
@@ -1002,7 +1607,7 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 616772194916667,
+							"sid": 933536207118504,
 							"parameters": {
 								"seconds": "1.0"
 							}
@@ -1010,7 +1615,7 @@
 						{
 							"id": "set-text",
 							"objectClass": "SpriteFont",
-							"sid": 286924904855326,
+							"sid": 441138782549931,
 							"parameters": {
 								"text": "\"Starting in 1\""
 							}
@@ -1018,13 +1623,13 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 544276244058108,
+							"sid": 969711866738394,
 							"parameters": {
 								"seconds": "1.0"
 							}
 						}
 					],
-					"sid": 109595062439427,
+					"sid": 741359080163202,
 					"children": [
 						{
 							"eventType": "block",
@@ -1032,7 +1637,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Player",
-									"sid": 337740065924382,
+									"sid": 744214789967132,
 									"parameters": {
 										"instance-variable": "ActorNr",
 										"comparison": 0,
@@ -1043,7 +1648,7 @@
 							"actions": [
 								{
 									"callFunction": "setFollowedPlayer",
-									"sid": 522667467542747,
+									"sid": 187963889405042,
 									"parameters": [
 										"Player.UID"
 									]
@@ -1051,14 +1656,27 @@
 								{
 									"id": "set-enabled",
 									"objectClass": "Player",
-									"sid": 113747710863824,
+									"sid": 447012824132573,
 									"behaviorType": "Platform",
 									"parameters": {
 										"state": "enabled"
 									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 571698829044276,
+									"parameters": {
+										"object-to-create": "Ball",
+										"layer": "0",
+										"x": "LayoutWidth/2",
+										"y": "LayoutHeight/2",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
 								}
 							],
-							"sid": 122485843924225
+							"sid": 437111290651938
 						},
 						{
 							"eventType": "block",
@@ -1067,34 +1685,366 @@
 								{
 									"id": "set-text",
 									"objectClass": "SpriteFont",
-									"sid": 233712429217259,
+									"sid": 223169648070464,
 									"parameters": {
 										"text": "\"Start\""
 									}
 								},
 								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 878684347159255,
+									"id": "set-fade-in-time",
+									"objectClass": "SpriteFont",
+									"sid": 481036342138358,
+									"behaviorType": "Fade",
 									"parameters": {
-										"seconds": "1.0"
+										"fade-in-time": "0"
 									}
 								},
 								{
-									"id": "set-visible",
+									"id": "set-wait-time",
 									"objectClass": "SpriteFont",
-									"sid": 822241889778157,
+									"sid": 692161416543135,
+									"behaviorType": "Fade",
 									"parameters": {
-										"visibility": "invisible"
+										"wait-time": "0"
 									}
+								},
+								{
+									"id": "set-fade-out-time",
+									"objectClass": "SpriteFont",
+									"sid": 198140596250608,
+									"behaviorType": "Fade",
+									"parameters": {
+										"fade-out-time": "1"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "SpriteFont",
+									"sid": 651982951362764,
+									"behaviorType": "Fade"
 								}
 							],
-							"sid": 581894687393230
+							"sid": 581175346552834
 						}
 					]
 				}
 			],
 			"sid": 942916712965782
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Ball",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "upDown",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 404087709003483
+				},
+				{
+					"eventType": "variable",
+					"name": "leftRight",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 998583792122233
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 415739019254276
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Ball",
+							"sid": 828933911193877
+						},
+						{
+							"id": "set-stepping-mode",
+							"objectClass": "Ball",
+							"sid": 852848546142459,
+							"behaviorType": "Physics",
+							"parameters": {
+								"mode": "framerate-independent"
+							}
+						},
+						{
+							"id": "set-world-gravity",
+							"objectClass": "Ball",
+							"sid": 597124915359670,
+							"behaviorType": "Physics",
+							"parameters": {
+								"gravity": "24"
+							}
+						}
+					],
+					"sid": 860764846182106
+				},
+				{
+					"functionName": "kickBall",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "BallArrow",
+							"sid": 191171740559149
+						}
+					],
+					"actions": [
+						{
+							"id": "raiseevent17",
+							"objectClass": "Photon",
+							"sid": 145553179803947,
+							"parameters": {
+								"code0": "KICK_EVENT",
+								"data1": "Ball.X&\";\"&Ball.Y&\";48;\"&BallArrow.Angle",
+								"interestgroup2": "0",
+								"cache11": "donotcache",
+								"receivers15": "all",
+								"targetactors16": "\"\"",
+								"webforward19": "no"
+							}
+						}
+					],
+					"sid": 683548108524961
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "BallArea",
+							"sid": 765103033645522
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "BallArea",
+							"sid": 520361720579707,
+							"parameters": {
+								"object": "Ball",
+								"image-point-optional": "0"
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "Ball",
+							"sid": 916666293786463,
+							"parameters": {
+								"child": "BallArea",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-w": false,
+								"transform-h": false,
+								"transform-a": false,
+								"transform-z-elevation": false,
+								"destroy-with-parent": true
+							}
+						}
+					],
+					"sid": 984221563014993
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "BallArrow",
+							"sid": 334886500101167
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "BallArrow",
+							"sid": 743205272482286,
+							"parameters": {
+								"object": "Ball",
+								"image-point-optional": "0"
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "Ball",
+							"sid": 797283836459202,
+							"parameters": {
+								"child": "BallArrow",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-w": false,
+								"transform-h": false,
+								"transform-a": false,
+								"transform-z-elevation": false,
+								"destroy-with-parent": true
+							}
+						}
+					],
+					"sid": 999554721711151
+				},
+				{
+					"functionName": "setArrowUpDown",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "upDownParams",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 435198975727014
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 856158085890187,
+							"parameters": {
+								"variable": "upDown",
+								"value": "upDownParams"
+							}
+						}
+					],
+					"sid": 967137506714159
+				},
+				{
+					"functionName": "setArrowLeftRight",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "leftRightParams",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 550789164431785
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 412615565987567,
+							"parameters": {
+								"variable": "leftRight",
+								"value": "leftRightParams"
+							}
+						}
+					],
+					"sid": 681940218187905
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "BallArrow",
+							"sid": 991580366350061
+						}
+					],
+					"actions": [],
+					"sid": 961544781792089,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 902357569337314,
+									"parameters": {
+										"first-value": "upDown",
+										"comparison": 1,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 173025291027349,
+									"parameters": {
+										"first-value": "leftRight",
+										"comparison": 1,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-angle-toward-position",
+									"objectClass": "BallArrow",
+									"sid": 599995583472826,
+									"parameters": {
+										"x": "Self.X + leftRight",
+										"y": "Self.Y + upDown"
+									}
+								}
+							],
+							"sid": 526908218899300,
+							"isOrBlock": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Ball",
+							"sid": 909829866578675,
+							"parameters": {
+								"object": "Goal"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "raiseevent17",
+							"objectClass": "Photon",
+							"sid": 903488896523780,
+							"parameters": {
+								"code0": "GOAL_EVENT",
+								"data1": "Goal.playerIndex",
+								"interestgroup2": "0",
+								"cache11": "donotcache",
+								"receivers15": "others",
+								"targetactors16": "\"\"",
+								"webforward19": "no"
+							}
+						}
+					],
+					"sid": 630778871900430
+				}
+			],
+			"sid": 980701065731774
 		}
 	],
 	"sid": 219985874213153
