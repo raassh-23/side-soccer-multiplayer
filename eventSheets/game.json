@@ -847,16 +847,6 @@
 			"sid": 804186949797764
 		},
 		{
-			"eventType": "variable",
-			"name": "gameStarted",
-			"type": "boolean",
-			"initialValue": "false",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 731454081363244
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Multiplayer",
@@ -1114,6 +1104,14 @@
 										"comparison": 5,
 										"second-value": "2"
 									}
+								},
+								{
+									"id": "evaluate-expression",
+									"objectClass": "System",
+									"sid": 875042747909279,
+									"parameters": {
+										"value": "Functions.isRoomMaster"
+									}
 								}
 							],
 							"actions": [
@@ -1320,15 +1318,6 @@
 										"variable": "player1Score",
 										"value": "1"
 									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 291734132386906,
-									"parameters": {
-										"type": "log",
-										"message": "\"player 1 goal\""
-									}
 								}
 							],
 							"sid": 929020010627887
@@ -1351,15 +1340,6 @@
 										"variable": "player2Score",
 										"value": "1"
 									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 145397355838452,
-									"parameters": {
-										"type": "log",
-										"message": "\"player 2 goal\""
-									}
 								}
 							],
 							"sid": 738958031811645
@@ -1377,23 +1357,15 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 847443602362910,
+									"sid": 289105003155149,
 									"parameters": {
-										"seconds": "0.25"
+										"seconds": "3"
 									}
 								},
 								{
 									"id": "destroy",
 									"objectClass": "Ball",
 									"sid": 403200294553438
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 741026732860719,
-									"parameters": {
-										"seconds": "0.75"
-									}
 								},
 								{
 									"id": "create-object",
@@ -1533,15 +1505,6 @@
 							}
 						},
 						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 652833891545729,
-							"parameters": {
-								"variable": "gameStarted"
-							},
-							"isInverted": true
-						},
-						{
 							"id": "compare-instance-variable",
 							"objectClass": "SpriteFont",
 							"sid": 241935022292952,
@@ -1553,15 +1516,6 @@
 						}
 					],
 					"actions": [
-						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 834379176399989,
-							"parameters": {
-								"variable": "gameStarted",
-								"value": "true"
-							}
-						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
@@ -1727,6 +1681,27 @@
 							"sid": 581175346552834
 						}
 					]
+				},
+				{
+					"functionName": "isRoomMaster",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "number",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 720892333479009,
+							"parameters": {
+								"value": "Photon.MyActorNr= Photon.MasterActorNr"
+							}
+						}
+					],
+					"sid": 340112522850287
 				}
 			],
 			"sid": 942916712965782
@@ -2023,19 +1998,45 @@
 							"parameters": {
 								"object": "Goal"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Ball",
+							"sid": 828058989860184,
+							"parameters": {
+								"instance-variable": "hasGoal"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "evaluate-expression",
+							"objectClass": "System",
+							"sid": 491515059092774,
+							"parameters": {
+								"value": "Functions.isRoomMaster"
+							}
 						}
 					],
 					"actions": [
 						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Ball",
+							"sid": 296202422642116,
+							"parameters": {
+								"instance-variable": "hasGoal",
+								"value": "true"
+							}
+						},
+						{
 							"id": "raiseevent17",
 							"objectClass": "Photon",
-							"sid": 903488896523780,
+							"sid": 827090134116965,
 							"parameters": {
 								"code0": "GOAL_EVENT",
 								"data1": "Goal.playerIndex",
 								"interestgroup2": "0",
 								"cache11": "donotcache",
-								"receivers15": "others",
+								"receivers15": "all",
 								"targetactors16": "\"\"",
 								"webforward19": "no"
 							}
