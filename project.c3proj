@@ -135,7 +135,24 @@
 	},
 	"rootFileFolders": {
 		"script": {
-			"items": [],
+			"items": [
+				{
+					"name": "main.js",
+					"type": "application/javascript",
+					"sid": 500981972741971,
+					"script-info": {
+						"purpose": "main"
+					}
+				},
+				{
+					"name": "utils.js",
+					"type": "application/javascript",
+					"sid": 320347774455737,
+					"script-info": {
+						"purpose": "imports-for-events"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"sound": {

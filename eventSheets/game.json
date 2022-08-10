@@ -2,16 +2,6 @@
 	"name": "Game",
 	"events": [
 		{
-			"eventType": "variable",
-			"name": "playerCount",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 663591650528643
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -322,12 +312,12 @@
 					],
 					"actions": [
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 192130734167280,
+							"id": "set-position",
+							"objectClass": "Camera",
+							"sid": 122798552288803,
 							"parameters": {
-								"variable": "FollowedPlayerUID",
-								"value": "Player.UID"
+								"x": "LayoutWidth/2",
+								"y": "LayoutHeight/2"
 							}
 						}
 					],
@@ -337,9 +327,14 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "every-tick",
+							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 378612289167704
+							"sid": 665214469925059,
+							"parameters": {
+								"variable": "FollowedPlayerUID",
+								"comparison": 5,
+								"value": "0"
+							}
 						},
 						{
 							"id": "pick-by-comparison",
@@ -529,27 +524,37 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "playerCount",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 311754844199261
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "on-start-of-layout",
 							"objectClass": "System",
-							"sid": 899297698265774
+							"sid": 118117570373378
 						}
 					],
 					"actions": [
 						{
 							"id": "destroy",
 							"objectClass": "Player",
-							"sid": 873547983155374
+							"sid": 869604791827098
 						},
 						{
 							"id": "connect10",
 							"objectClass": "Photon",
-							"sid": 315759849198164
+							"sid": 277634057452926
 						}
 					],
-					"sid": 334760787189677
+					"sid": 718789737436587
 				},
 				{
 					"eventType": "block",
@@ -557,16 +562,16 @@
 						{
 							"id": "onjoinedlobby22",
 							"objectClass": "Photon",
-							"sid": 710727890802367
+							"sid": 230822186521557
 						}
 					],
 					"actions": [
 						{
 							"id": "joinrandomroom13",
 							"objectClass": "Photon",
-							"sid": 440890938724618,
+							"sid": 773931115757437,
 							"parameters": {
-								"matchmyroom2": "yes",
+								"matchmyroom2": "no",
 								"matchmakingmode6": "fillroom",
 								"lobbyname7": "LOBBY_NAME",
 								"lobbytype10": "default",
@@ -574,7 +579,7 @@
 							}
 						}
 					],
-					"sid": 774416873299219
+					"sid": 397765756300007
 				},
 				{
 					"eventType": "block",
@@ -582,30 +587,30 @@
 						{
 							"id": "onjoinrandomroomnomatchfound23",
 							"objectClass": "Photon",
-							"sid": 412734666874362
+							"sid": 250009516765886
 						}
 					],
 					"actions": [
 						{
-							"id": "createroom11",
-							"objectClass": "Photon",
-							"sid": 263136695582411,
-							"parameters": {
-								"room0": "\"test\"&floor(1000)",
-								"lobbyname1": "LOBBY_NAME",
-								"lobbytype4": "default"
-							}
-						},
-						{
 							"id": "setmyroommaxplayers107",
 							"objectClass": "Photon",
-							"sid": 544922146727497,
+							"sid": 746949068472966,
 							"parameters": {
 								"maxplayers0": "2"
 							}
+						},
+						{
+							"id": "createroom11",
+							"objectClass": "Photon",
+							"sid": 991484514760506,
+							"parameters": {
+								"room0": "Functions.generateRoomName(8)",
+								"lobbyname1": "LOBBY_NAME",
+								"lobbytype4": "default"
+							}
 						}
 					],
-					"sid": 301682721335489
+					"sid": 914609977329409
 				},
 				{
 					"eventType": "block",
@@ -613,14 +618,14 @@
 						{
 							"id": "onjoinroom14",
 							"objectClass": "Photon",
-							"sid": 325996264609941
+							"sid": 897723932485264
 						}
 					],
 					"actions": [
 						{
 							"id": "raiseevent17",
 							"objectClass": "Photon",
-							"sid": 194946620605030,
+							"sid": 771747469221570,
 							"parameters": {
 								"code0": "JOIN_EVENT",
 								"data1": "0",
@@ -632,7 +637,7 @@
 							}
 						}
 					],
-					"sid": 744226411074785,
+					"sid": 621306925081992,
 					"children": [
 						{
 							"eventType": "block",
@@ -640,7 +645,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "SpriteFont",
-									"sid": 353505530803380,
+									"sid": 978313543079380,
 									"parameters": {
 										"instance-variable": "id",
 										"comparison": 0,
@@ -650,15 +655,15 @@
 							],
 							"actions": [
 								{
-									"id": "set-visible",
+									"id": "set-text",
 									"objectClass": "SpriteFont",
-									"sid": 654781808801910,
+									"sid": 504604136722721,
 									"parameters": {
-										"visibility": "invisible"
+										"text": "\"Waiting player\""
 									}
 								}
 							],
-							"sid": 494788014050402
+							"sid": 951657119831264
 						}
 					]
 				},
@@ -668,14 +673,14 @@
 						{
 							"id": "onerror0",
 							"objectClass": "Photon",
-							"sid": 154509600771649
+							"sid": 325712660995979
 						}
 					],
 					"actions": [
 						{
 							"id": "go-to-layout",
 							"objectClass": "System",
-							"sid": 491879443253273,
+							"sid": 527527992054367,
 							"parameters": {
 								"layout": "Menu"
 							}
@@ -683,14 +688,14 @@
 						{
 							"id": "log",
 							"objectClass": "Browser",
-							"sid": 149578704634924,
+							"sid": 165286880147142,
 							"parameters": {
 								"type": "log",
 								"message": "\"Join Error \" & Photon.ErrorMessage"
 							}
 						}
 					],
-					"sid": 320171985021624
+					"sid": 904914572247661
 				},
 				{
 					"eventType": "block",
@@ -698,28 +703,17 @@
 						{
 							"id": "onevent3",
 							"objectClass": "Photon",
-							"sid": 244019432394105,
+							"sid": 330745847641091,
 							"parameters": {
 								"code0": "JOIN_EVENT"
 							}
 						},
 						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 502832603036773,
+							"id": "compare-instance-variable",
+							"objectClass": "PlayerSpawn",
+							"sid": 405626699820144,
 							"parameters": {
-								"variable": "JOIN_EVENT",
-								"comparison": 2,
-								"value": "2"
-							}
-						},
-						{
-							"id": "pick-by-comparison",
-							"objectClass": "System",
-							"sid": 481810776027505,
-							"parameters": {
-								"object": "PlayerSpawn",
-								"expression": "PlayerSpawn.playerIndex",
+								"instance-variable": "playerIndex",
 								"comparison": 0,
 								"value": "playerCount"
 							}
@@ -729,7 +723,7 @@
 						{
 							"id": "spawn-another-object",
 							"objectClass": "PlayerSpawn",
-							"sid": 417249237815817,
+							"sid": 811445703918012,
 							"parameters": {
 								"object": "Player",
 								"layer": "0",
@@ -740,57 +734,54 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Player",
-							"sid": 408702048742569,
+							"sid": 377911846220815,
 							"parameters": {
 								"instance-variable": "ActorNr",
 								"value": "Photon.ActorNr"
 							}
 						},
 						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 449386054462539,
+							"parameters": {
+								"animation": "\"Player\"&playerCount+1",
+								"from": "beginning"
+							}
+						},
+						{
 							"id": "add-to-eventvar",
 							"objectClass": "System",
-							"sid": 983166513039597,
+							"sid": 929389218197703,
 							"parameters": {
 								"variable": "playerCount",
 								"value": "1"
 							}
 						}
 					],
-					"sid": 251947446317825,
+					"sid": 494860689657418,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "Player",
-									"sid": 493912123808102,
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 892179295657961,
 									"parameters": {
-										"instance-variable": "ActorNr",
-										"comparison": 0,
-										"value": "Photon.MyActorNr"
+										"variable": "playerCount",
+										"comparison": 5,
+										"value": "2"
 									}
 								}
 							],
 							"actions": [
 								{
-									"callFunction": "setFollowedPlayer",
-									"sid": 432644392489352,
-									"parameters": [
-										"Player.UID"
-									]
-								},
-								{
-									"id": "set-enabled",
-									"objectClass": "Player",
-									"sid": 856056389375824,
-									"behaviorType": "Platform",
-									"parameters": {
-										"state": "enabled"
-									}
+									"callFunction": "startGame",
+									"sid": 827772291120727
 								}
 							],
-							"sid": 843334615121882
+							"sid": 521276722833395
 						}
 					]
 				},
@@ -800,7 +791,7 @@
 						{
 							"id": "onevent3",
 							"objectClass": "Photon",
-							"sid": 225163684026207,
+							"sid": 191202700744834,
 							"parameters": {
 								"code0": "SET_POSITION_EVENT"
 							}
@@ -808,7 +799,7 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player",
-							"sid": 471285517983387,
+							"sid": 189885122156899,
 							"parameters": {
 								"instance-variable": "ActorNr",
 								"comparison": 0,
@@ -820,7 +811,7 @@
 						{
 							"id": "tween-two-properties",
 							"objectClass": "Player",
-							"sid": 564636496483457,
+							"sid": 516266168731572,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "MOVE_PLAYER",
@@ -833,19 +824,9 @@
 								"loop": "no",
 								"ping-pong": "no"
 							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "Player",
-							"sid": 310509206916953,
-							"disabled": true,
-							"parameters": {
-								"x": "int(tokenat(Photon.EventData, 0, \";\"))",
-								"y": "int(tokenat(Photon.EventData, 1, \";\"))"
-							}
 						}
 					],
-					"sid": 801864043365070,
+					"sid": 503295680236181,
 					"children": [
 						{
 							"eventType": "block",
@@ -853,7 +834,7 @@
 								{
 									"id": "evaluate-expression",
 									"objectClass": "System",
-									"sid": 790819998136217,
+									"sid": 119762727535666,
 									"parameters": {
 										"value": "int(tokenat(Photon.EventData, 2, \";\"))"
 									}
@@ -863,13 +844,13 @@
 								{
 									"id": "set-mirrored",
 									"objectClass": "Player",
-									"sid": 501746716992775,
+									"sid": 838254363166784,
 									"parameters": {
 										"state": "mirrored"
 									}
 								}
 							],
-							"sid": 200307904832848
+							"sid": 237039804855273
 						},
 						{
 							"eventType": "block",
@@ -877,20 +858,20 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 892454054644114
+									"sid": 958617050369100
 								}
 							],
 							"actions": [
 								{
 									"id": "set-mirrored",
 									"objectClass": "Player",
-									"sid": 561311959320409,
+									"sid": 426616917722831,
 									"parameters": {
 										"state": "not-mirrored"
 									}
 								}
 							],
-							"sid": 432098332844199
+							"sid": 393168882529186
 						}
 					]
 				},
@@ -900,12 +881,12 @@
 						{
 							"id": "onactorleave16",
 							"objectClass": "Photon",
-							"sid": 969914265560959
+							"sid": 644972196349628
 						},
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player",
-							"sid": 804300721636823,
+							"sid": 918691237500614,
 							"parameters": {
 								"instance-variable": "ActorNr",
 								"comparison": 0,
@@ -917,10 +898,200 @@
 						{
 							"id": "destroy",
 							"objectClass": "Player",
-							"sid": 709712521459358
+							"sid": 922688025512155
 						}
 					],
-					"sid": 909017629438664
+					"sid": 776560653133113
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "SpriteFont",
+							"sid": 842196663178036,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "SpriteFont",
+							"sid": 773816455293741,
+							"parameters": {
+								"text": "Photon.MyRoomName"
+							}
+						}
+					],
+					"sid": 934717320145466
+				},
+				{
+					"functionName": "generateRoomName",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "string",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "length",
+							"type": "number",
+							"initialValue": "8",
+							"comment": "",
+							"sid": 851501860600863
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "runtime.setReturnValue(generateRandomName(localVars.length))"
+						}
+					],
+					"sid": 627842905611567
+				},
+				{
+					"functionName": "startGame",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "SpriteFont",
+							"sid": 460208313808924,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "SpriteFont",
+							"sid": 115342169358636,
+							"parameters": {
+								"text": "\"Starting in 3\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 392970302947959,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "SpriteFont",
+							"sid": 382019475851562,
+							"parameters": {
+								"text": "\"Starting in 2\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 616772194916667,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "SpriteFont",
+							"sid": 286924904855326,
+							"parameters": {
+								"text": "\"Starting in 1\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 544276244058108,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						}
+					],
+					"sid": 109595062439427,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player",
+									"sid": 337740065924382,
+									"parameters": {
+										"instance-variable": "ActorNr",
+										"comparison": 0,
+										"value": "Photon.MyActorNr"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "setFollowedPlayer",
+									"sid": 522667467542747,
+									"parameters": [
+										"Player.UID"
+									]
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Player",
+									"sid": 113747710863824,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 122485843924225
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "SpriteFont",
+									"sid": 233712429217259,
+									"parameters": {
+										"text": "\"Start\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 878684347159255,
+									"parameters": {
+										"seconds": "1.0"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "SpriteFont",
+									"sid": 822241889778157,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 581894687393230
+						}
+					]
 				}
 			],
 			"sid": 942916712965782
