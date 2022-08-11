@@ -20,7 +20,7 @@
 					"objectClass": "Photon",
 					"sid": 259350423205350,
 					"parameters": {
-						"code0": "JOIN_ROOM_EVENT",
+						"code0": "JOINED_ROOM_EVENT",
 						"data1": "0",
 						"interestgroup2": "0",
 						"cache11": "addtoroomcache",
@@ -40,7 +40,7 @@
 					"objectClass": "Photon",
 					"sid": 728863005022790,
 					"parameters": {
-						"code0": "JOIN_ROOM_EVENT"
+						"code0": "JOINED_ROOM_EVENT"
 					}
 				},
 				{
@@ -66,6 +66,10 @@
 				{
 					"callFunction": "updatePlayersList",
 					"sid": 307009317593683
+				},
+				{
+					"callFunction": "checkStartable",
+					"sid": 736564854056608
 				}
 			],
 			"sid": 971638765532121
@@ -165,9 +169,9 @@
 						{
 							"id": "append-text",
 							"objectClass": "SpriteFontUI",
-							"sid": 586451853322815,
+							"sid": 974886106750124,
 							"parameters": {
-								"text": "newline & playerName & (playerActorNr = Photon.MasterActorNr ? \" (room master)\" : \"\")"
+								"text": "newline & playerName & Functions.getNameSuffix(playerActorNr)"
 							}
 						}
 					],
@@ -193,10 +197,354 @@
 				{
 					"callFunction": "updatePlayersList",
 					"sid": 202495353720785
+				},
+				{
+					"callFunction": "checkStartable",
+					"sid": 461266241023047
 				}
 			],
 			"sid": 814342427827656,
 			"isOrBlock": true
+		},
+		{
+			"functionName": "getNameSuffix",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "playerActorNr",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 103763370138218
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 482484102247239,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "nameSuffix",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 524701931366083
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 148633548677447,
+							"parameters": {
+								"first-value": "playerActorNr",
+								"comparison": 0,
+								"second-value": "Photon.MyActorNr"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 896761607575015,
+							"parameters": {
+								"variable": "nameSuffix",
+								"value": "\" (you)\""
+							}
+						}
+					],
+					"sid": 137408678298504
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 828106348083588,
+							"parameters": {
+								"first-value": "playerActorNr",
+								"comparison": 0,
+								"second-value": "Photon.MasterActorNr"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 137215392995295,
+							"parameters": {
+								"variable": "nameSuffix",
+								"value": "\" (room master)\""
+							}
+						}
+					],
+					"sid": 188100398351239
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 755312635810106,
+							"parameters": {
+								"first-value": "playerActorNr",
+								"comparison": 0,
+								"second-value": "Photon.MyActorNr"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 936591090157743,
+							"parameters": {
+								"first-value": "playerActorNr",
+								"comparison": 0,
+								"second-value": "Photon.MasterActorNr"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 287614699276929,
+							"parameters": {
+								"variable": "nameSuffix",
+								"value": "\" (you, room master)\""
+							}
+						}
+					],
+					"sid": 718266646005478
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 372231823707122,
+							"parameters": {
+								"value": "nameSuffix"
+							}
+						}
+					],
+					"sid": 561834794706219
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 240968619943595,
+					"parameters": {
+						"object": "Button"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "Button",
+					"sid": 970194468390208
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 160933249832837,
+					"parameters": {
+						"layer": "Button.LayerName"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 250928241421314,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Button",
+							"sid": 553170185271572,
+							"parameters": {
+								"comparison": 0,
+								"number": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "leaveroom16",
+							"objectClass": "Photon",
+							"sid": 688822096765759
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 341098511578760,
+							"parameters": {
+								"layout": "Menu"
+							}
+						}
+					],
+					"sid": 244593614796641
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Button",
+							"sid": 939012046510890,
+							"parameters": {
+								"comparison": 0,
+								"number": "4"
+							}
+						},
+						{
+							"id": "evaluate-expression",
+							"objectClass": "System",
+							"sid": 201768977923131,
+							"parameters": {
+								"value": "Functions.isRoomMaster"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "raiseevent17",
+							"objectClass": "Photon",
+							"sid": 581857222428011,
+							"parameters": {
+								"code0": "GO_TO_GAME_EVENT",
+								"data1": "0",
+								"interestgroup2": "0",
+								"cache11": "donotcache",
+								"receivers15": "all",
+								"targetactors16": "\"\"",
+								"webforward19": "no"
+							}
+						}
+					],
+					"sid": 838333308586493
+				}
+			]
+		},
+		{
+			"functionName": "checkStartable",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Button",
+					"sid": 664689753614940,
+					"parameters": {
+						"comparison": 0,
+						"number": "4"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 755501693076256,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 556131262427133,
+							"parameters": {
+								"first-value": "Photon.ActorCount",
+								"comparison": 5,
+								"second-value": "2"
+							}
+						},
+						{
+							"id": "evaluate-expression",
+							"objectClass": "System",
+							"sid": 784429768859694,
+							"parameters": {
+								"value": "Functions.isRoomMaster"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Button",
+							"sid": 944739435091643,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 902226175051530
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 141568759546430
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Button",
+							"sid": 366541895294695,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 780885008443030
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "onevent3",
+					"objectClass": "Photon",
+					"sid": 603516491098677,
+					"parameters": {
+						"code0": "GO_TO_GAME_EVENT"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 735542901998991,
+					"parameters": {
+						"layout": "Game"
+					}
+				}
+			],
+			"sid": 187912838315073
 		}
 	],
 	"sid": 254197325271114

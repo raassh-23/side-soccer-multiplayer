@@ -222,10 +222,10 @@
 					"behaviors": {
 						"Platform": {
 							"properties": {
-								"max-speed": 400,
+								"max-speed": 600,
 								"acceleration": 1500,
 								"deceleration": 1500,
-								"jump-strength": 800,
+								"jump-strength": 1000,
 								"gravity": 2000,
 								"max-fall-speed": 2000,
 								"double-jump": false,

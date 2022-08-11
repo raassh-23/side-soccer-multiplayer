@@ -25,32 +25,173 @@
 					"parameters": {
 						"object": "Button"
 					}
-				}
-			],
-			"actions": [
-				{
-					"id": "joinrandomroom13",
-					"objectClass": "Photon",
-					"sid": 618549996556717,
-					"parameters": {
-						"matchmyroom2": "no",
-						"matchmakingmode6": "fillroom",
-						"lobbyname7": "LOBBY_NAME",
-						"lobbytype10": "default",
-						"sqllobbyfilter11": "\"\""
-					}
 				},
 				{
-					"id": "set-eventvar-value",
+					"id": "is-visible",
+					"objectClass": "Button",
+					"sid": 151053005499580
+				},
+				{
+					"id": "layer-is-visible",
 					"objectClass": "System",
-					"sid": 860709906346745,
+					"sid": 473464481079174,
 					"parameters": {
-						"variable": "message",
-						"value": "\"Joining a random room\""
+						"layer": "Button.LayerName"
 					}
 				}
 			],
-			"sid": 653224476035682
+			"actions": [],
+			"sid": 653224476035682,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Button",
+							"sid": 980940450057832,
+							"parameters": {
+								"comparison": 0,
+								"number": "0"
+							}
+						},
+						{
+							"id": "evaluate-expression",
+							"objectClass": "System",
+							"sid": 436962190935896,
+							"parameters": {
+								"value": "Functions.isTextInputEmpty(0, \"Name cannot be empty\")"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "joinrandomroom13",
+							"objectClass": "Photon",
+							"sid": 971777029946484,
+							"parameters": {
+								"matchmyroom2": "no",
+								"matchmakingmode6": "fillroom",
+								"lobbyname7": "LOBBY_NAME",
+								"lobbytype10": "default",
+								"sqllobbyfilter11": "\"\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 892551062228097,
+							"parameters": {
+								"variable": "message",
+								"value": "\"Joining a random room\""
+							}
+						}
+					],
+					"sid": 235857336121759
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Button",
+							"sid": 648476899714140,
+							"parameters": {
+								"comparison": 0,
+								"number": "1"
+							}
+						},
+						{
+							"id": "evaluate-expression",
+							"objectClass": "System",
+							"sid": 710951946523757,
+							"parameters": {
+								"value": "Functions.isTextInputEmpty(0, \"Name cannot be empty\")"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "createRoom",
+							"sid": 771031416784391
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 779946895262942,
+							"parameters": {
+								"variable": "message",
+								"value": "\"Creating a room\""
+							}
+						}
+					],
+					"sid": 560757370307559
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Button",
+							"sid": 179508833228170,
+							"parameters": {
+								"comparison": 0,
+								"number": "2"
+							}
+						},
+						{
+							"id": "evaluate-expression",
+							"objectClass": "System",
+							"sid": 577005448329796,
+							"parameters": {
+								"value": "Functions.isTextInputEmpty(0, \"Name cannot be empty\")"
+							}
+						},
+						{
+							"id": "evaluate-expression",
+							"objectClass": "System",
+							"sid": 589462194759486,
+							"parameters": {
+								"value": "Functions.isTextInputEmpty(1, \"Room code cannot be empty\")"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TextInput",
+							"sid": 756721271560204,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "joinroom12",
+							"objectClass": "Photon",
+							"sid": 278832315134353,
+							"parameters": {
+								"room0": "TextInput.Text",
+								"rejoin3": "no",
+								"createifnotexists6": "no",
+								"lobbyname7": "LOBBY_NAME",
+								"lobbytype10": "default"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 775230765115611,
+							"parameters": {
+								"variable": "message",
+								"value": "\"Joining a room\""
+							}
+						}
+					],
+					"sid": 713601936866846
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -62,11 +203,6 @@
 				}
 			],
 			"actions": [
-				{
-					"id": "connect10",
-					"objectClass": "Photon",
-					"sid": 277634057452926
-				},
 				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
@@ -95,15 +231,36 @@
 					}
 				}
 			],
-			"sid": 271930627564675
+			"sid": 271930627564675,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "isconnectedtonameserver31",
+							"objectClass": "Photon",
+							"sid": 975578713047475,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "connect10",
+							"objectClass": "Photon",
+							"sid": 405738956136206
+						}
+					],
+					"sid": 968639261956250
+				}
+			]
 		},
 		{
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "onjoinedlobby22",
+					"id": "isinlobby33",
 					"objectClass": "Photon",
-					"sid": 230822186521557
+					"sid": 461154749315073
 				}
 			],
 			"actions": [
@@ -126,7 +283,8 @@
 					}
 				}
 			],
-			"sid": 397765756300007
+			"sid": 397765756300007,
+			"isOrBlock": true
 		},
 		{
 			"eventType": "block",
@@ -139,34 +297,8 @@
 			],
 			"actions": [
 				{
-					"id": "setmyroommaxplayers107",
-					"objectClass": "Photon",
-					"sid": 781686454028991,
-					"parameters": {
-						"maxplayers0": "2"
-					}
-				},
-				{
-					"id": "setpropertyofmyroom103",
-					"objectClass": "Photon",
-					"sid": 666378145912461,
-					"parameters": {
-						"propname0": "\"isStarted\"",
-						"value1": "0",
-						"webforward4": "no",
-						"checkandset7": "no",
-						"expectedvalue8": "0"
-					}
-				},
-				{
-					"id": "createroom11",
-					"objectClass": "Photon",
-					"sid": 805373471803163,
-					"parameters": {
-						"room0": "Functions.generateName(8)",
-						"lobbyname1": "LOBBY_NAME",
-						"lobbytype4": "default"
-					}
+					"callFunction": "createRoom",
+					"sid": 519257456265378
 				}
 			],
 			"sid": 688876669326276
@@ -204,23 +336,13 @@
 					"id": "onjoinroom14",
 					"objectClass": "Photon",
 					"sid": 334814570506838
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "SpriteFontUI",
-					"sid": 511754693897052,
-					"parameters": {
-						"instance-variable": "id",
-						"comparison": 0,
-						"value": "0"
-					}
 				}
 			],
 			"actions": [
 				{
 					"id": "setpropertyofactorbynr102",
 					"objectClass": "Photon",
-					"sid": 677304077084135,
+					"sid": 708986402973860,
 					"parameters": {
 						"actornr0": "Photon.MyActorNr",
 						"propname1": "\"name\"",
@@ -233,13 +355,153 @@
 				{
 					"id": "go-to-layout",
 					"objectClass": "System",
-					"sid": 907636047527787,
+					"sid": 332409498752222,
 					"parameters": {
 						"layout": "Room"
 					}
 				}
 			],
 			"sid": 365939586845456
+		},
+		{
+			"functionName": "createRoom",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "setmyroommaxplayers107",
+					"objectClass": "Photon",
+					"sid": 781686454028991,
+					"parameters": {
+						"maxplayers0": "2"
+					}
+				},
+				{
+					"id": "setpropertyofmyroom103",
+					"objectClass": "Photon",
+					"sid": 666378145912461,
+					"parameters": {
+						"propname0": "\"isStarted\"",
+						"value1": "0",
+						"webforward4": "no",
+						"checkandset7": "no",
+						"expectedvalue8": "0"
+					}
+				},
+				{
+					"id": "createroom11",
+					"objectClass": "Photon",
+					"sid": 805373471803163,
+					"parameters": {
+						"room0": "Functions.generateName(8)",
+						"lobbyname1": "LOBBY_NAME",
+						"lobbytype4": "default"
+					}
+				}
+			],
+			"sid": 901133978785937
+		},
+		{
+			"functionName": "isTextInputEmpty",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "id",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 499304143923927
+				},
+				{
+					"name": "errorMsg",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 984890803987121
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "TextInput",
+					"sid": 148563627920054,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "id"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 816179026062251,
+					"parameters": {
+						"value": "0"
+					}
+				}
+			],
+			"sid": 794736220728056,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-text",
+							"objectClass": "TextInput",
+							"sid": 327344202303233,
+							"parameters": {
+								"text": "\"\"",
+								"case": "case-insensitive"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 962434352962926,
+							"parameters": {
+								"value": "1"
+							}
+						}
+					],
+					"sid": 506887573294427
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 286055735614013
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 776474234430840,
+							"parameters": {
+								"variable": "message",
+								"value": "errorMsg"
+							}
+						}
+					],
+					"sid": 300436537294960
+				}
+			]
 		}
 	],
 	"sid": 349048883678011

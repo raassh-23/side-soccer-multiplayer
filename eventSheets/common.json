@@ -22,14 +22,53 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 187439145419304,
+					"sid": 199098631083681,
 					"parameters": {
 						"variable": "message",
-						"value": "\"Error: \" & Photon.ErrorMessage"
+						"value": "Photon.ErrorMessage"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 747701855862059,
+					"parameters": {
+						"type": "error",
+						"message": "\"Error: \" & Photon.ErrorMessage"
 					}
 				}
 			],
 			"sid": 150711115662702
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "ondisconnected24",
+					"objectClass": "Photon",
+					"sid": 577143756081647
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 722723958027580,
+					"parameters": {
+						"layout": "Menu"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 373160916683071,
+					"parameters": {
+						"variable": "message",
+						"value": "\"Disconnected\""
+					}
+				}
+			],
+			"sid": 362846379942274
 		}
 	],
 	"sid": 439389839612327

@@ -1017,6 +1017,16 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "joinedPlayer",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 757477628843126
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -1032,11 +1042,20 @@
 							"sid": 869604791827098
 						},
 						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 210694508613379,
+							"parameters": {
+								"variable": "joinedPlayer",
+								"value": "0"
+							}
+						},
+						{
 							"id": "raiseevent17",
 							"objectClass": "Photon",
 							"sid": 277793551250493,
 							"parameters": {
-								"code0": "JOIN_GAME_EVENT",
+								"code0": "JOINED_GAME_EVENT",
 								"data1": "0",
 								"interestgroup2": "0",
 								"cache11": "addtoroomcache",
@@ -1084,7 +1103,7 @@
 							"objectClass": "Photon",
 							"sid": 366389276949864,
 							"parameters": {
-								"code0": "JOIN_GAME_EVENT"
+								"code0": "JOINED_GAME_EVENT"
 							}
 						},
 						{
@@ -1127,6 +1146,15 @@
 								"animation": "\"Player\"&Photon.ActorNr",
 								"from": "beginning"
 							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 335602495665495,
+							"parameters": {
+								"variable": "joinedPlayer",
+								"value": "1"
+							}
 						}
 					],
 					"sid": 494860689657418,
@@ -1135,13 +1163,13 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-two-values",
+									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 272615072234036,
+									"sid": 622539099757922,
 									"parameters": {
-										"first-value": "Photon.ActorNr",
+										"variable": "joinedPlayer",
 										"comparison": 5,
-										"second-value": "2"
+										"value": "2"
 									}
 								},
 								{
@@ -1431,25 +1459,15 @@
 							"id": "onactorleave16",
 							"objectClass": "Photon",
 							"sid": 644972196349628
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Player",
-							"sid": 918691237500614,
-							"parameters": {
-								"instance-variable": "ActorNr",
-								"comparison": 0,
-								"value": "Photon.MyActorNr"
-							}
 						}
 					],
 					"actions": [
 						{
 							"id": "go-to-layout",
 							"objectClass": "System",
-							"sid": 496226410593650,
+							"sid": 828944060631985,
 							"parameters": {
-								"layout": "Menu"
+								"layout": "Room"
 							}
 						}
 					],
@@ -1729,16 +1747,11 @@
 							}
 						},
 						{
-							"id": "disconnect14",
-							"objectClass": "Photon",
-							"sid": 190309041358351
-						},
-						{
 							"id": "go-to-layout",
 							"objectClass": "System",
-							"sid": 841571183150684,
+							"sid": 793776879545149,
 							"parameters": {
-								"layout": "Menu"
+								"layout": "Room"
 							}
 						}
 					],
