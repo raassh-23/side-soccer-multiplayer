@@ -2,6 +2,20 @@
 	"name": "Menu",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "Common"
+		},
+		{
+			"eventType": "variable",
+			"name": "message",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 944661381572888
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -15,15 +29,217 @@
 			],
 			"actions": [
 				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 762368004277955,
+					"id": "joinrandomroom13",
+					"objectClass": "Photon",
+					"sid": 618549996556717,
 					"parameters": {
-						"layout": "Game"
+						"matchmyroom2": "no",
+						"matchmakingmode6": "fillroom",
+						"lobbyname7": "LOBBY_NAME",
+						"lobbytype10": "default",
+						"sqllobbyfilter11": "\"\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 860709906346745,
+					"parameters": {
+						"variable": "message",
+						"value": "\"Joining a random room\""
 					}
 				}
 			],
 			"sid": 653224476035682
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 774170612940253
+				}
+			],
+			"actions": [
+				{
+					"id": "connect10",
+					"objectClass": "Photon",
+					"sid": 277634057452926
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 178488131103116,
+					"parameters": {
+						"layer": "\"UI\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 757216427099707,
+					"parameters": {
+						"layer": "\"Loading\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "TextInput",
+					"sid": 482868547660170,
+					"parameters": {
+						"property-name": "\"font-size\"",
+						"value": "\"1.5vw\""
+					}
+				}
+			],
+			"sid": 271930627564675
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "onjoinedlobby22",
+					"objectClass": "Photon",
+					"sid": 230822186521557
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 364080069760982,
+					"parameters": {
+						"layer": "\"UI\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 250076041170831,
+					"parameters": {
+						"layer": "\"Loading\"",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 397765756300007
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "onjoinrandomroomnomatchfound23",
+					"objectClass": "Photon",
+					"sid": 357809762786541
+				}
+			],
+			"actions": [
+				{
+					"id": "setmyroommaxplayers107",
+					"objectClass": "Photon",
+					"sid": 781686454028991,
+					"parameters": {
+						"maxplayers0": "2"
+					}
+				},
+				{
+					"id": "setpropertyofmyroom103",
+					"objectClass": "Photon",
+					"sid": 666378145912461,
+					"parameters": {
+						"propname0": "\"isStarted\"",
+						"value1": "0",
+						"webforward4": "no",
+						"checkandset7": "no",
+						"expectedvalue8": "0"
+					}
+				},
+				{
+					"id": "createroom11",
+					"objectClass": "Photon",
+					"sid": 805373471803163,
+					"parameters": {
+						"room0": "Functions.generateName(8)",
+						"lobbyname1": "LOBBY_NAME",
+						"lobbytype4": "default"
+					}
+				}
+			],
+			"sid": 688876669326276
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "SpriteFontUI",
+					"sid": 845363583694743,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "SpriteFontUI",
+					"sid": 289504805496519,
+					"parameters": {
+						"text": "message"
+					}
+				}
+			],
+			"sid": 105373447368617
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "onjoinroom14",
+					"objectClass": "Photon",
+					"sid": 334814570506838
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "SpriteFontUI",
+					"sid": 511754693897052,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "setpropertyofactorbynr102",
+					"objectClass": "Photon",
+					"sid": 677304077084135,
+					"parameters": {
+						"actornr0": "Photon.MyActorNr",
+						"propname1": "\"name\"",
+						"value2": "TextInput.Text <> \"\" ? TextInput.Text : Functions.generateName(4)",
+						"webforward5": "no",
+						"checkandset8": "no",
+						"expectedvalue9": "0"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 907636047527787,
+					"parameters": {
+						"layout": "Room"
+					}
+				}
+			],
+			"sid": 365939586845456
 		}
 	],
 	"sid": 349048883678011

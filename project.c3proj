@@ -63,6 +63,22 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "EdwardBonnett_VsCodePlugin",
+			"name": "VS Code Plugin",
+			"author": "Edward Bonnett",
+			"version": "1.0.0.1",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TextBox",
+			"name": "Text input",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "solid",
 			"name": "Solid",
@@ -109,6 +125,14 @@
 			"author": "Scirra",
 			"version": "r302",
 			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Timer",
+			"name": "Timer",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
 		}
 	],
 	"uniqueId": "0e7jerna92b",
@@ -124,11 +148,14 @@
 			"Photon",
 			"Button",
 			"Touch",
-			"SpriteFont",
+			"SpriteFontUI",
 			"Ball",
 			"BallArea",
 			"BallArrow",
-			"Goal"
+			"Goal",
+			"Timer",
+			"VSCodePlugin",
+			"TextInput"
 		],
 		"subfolders": []
 	},
@@ -150,7 +177,8 @@
 	"layouts": {
 		"items": [
 			"Game",
-			"Menu"
+			"Menu",
+			"Room"
 		],
 		"subfolders": []
 	},
@@ -158,7 +186,10 @@
 		"items": [
 			"Game",
 			"Constants",
-			"Menu"
+			"Menu",
+			"Room",
+			"Common",
+			"Utils"
 		],
 		"subfolders": []
 	},

@@ -1,0 +1,36 @@
+{
+	"name": "Common",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "onerror0",
+					"objectClass": "Photon",
+					"sid": 690620156661533
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 350529275582880,
+					"parameters": {
+						"layout": "Menu"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 187439145419304,
+					"parameters": {
+						"variable": "message",
+						"value": "\"Error: \" & Photon.ErrorMessage"
+					}
+				}
+			],
+			"sid": 150711115662702
+		}
+	],
+	"sid": 439389839612327
+}

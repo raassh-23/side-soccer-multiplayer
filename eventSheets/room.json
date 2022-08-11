@@ -1,0 +1,203 @@
+{
+	"name": "Room",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Common"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 356826495556277
+				}
+			],
+			"actions": [
+				{
+					"id": "raiseevent17",
+					"objectClass": "Photon",
+					"sid": 259350423205350,
+					"parameters": {
+						"code0": "JOIN_ROOM_EVENT",
+						"data1": "0",
+						"interestgroup2": "0",
+						"cache11": "addtoroomcache",
+						"receivers15": "all",
+						"targetactors16": "\"\"",
+						"webforward19": "no"
+					}
+				}
+			],
+			"sid": 212817463166775
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "onevent3",
+					"objectClass": "Photon",
+					"sid": 728863005022790,
+					"parameters": {
+						"code0": "JOIN_ROOM_EVENT"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "SpriteFontUI",
+					"sid": 552269275966483,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "SpriteFontUI",
+					"sid": 577065732485763,
+					"parameters": {
+						"text": "\"Room Code: \" & Photon.MyRoomName"
+					}
+				},
+				{
+					"callFunction": "updatePlayersList",
+					"sid": 307009317593683
+				}
+			],
+			"sid": 971638765532121
+		},
+		{
+			"functionName": "updatePlayersList",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "SpriteFontUI",
+					"sid": 885452926004216,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "2"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 717323857215445,
+					"parameters": {
+						"type": "log",
+						"message": "\"update player\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "SpriteFontUI",
+					"sid": 573593686130228,
+					"parameters": {
+						"text": "\"List Players: \""
+					}
+				}
+			],
+			"sid": 315700992215968,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "playerName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 355326089025168
+				},
+				{
+					"eventType": "variable",
+					"name": "playerActorNr",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 199986811986580
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 551866163446190,
+							"parameters": {
+								"count": "Photon.ActorCount"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 689422271622598,
+							"parameters": {
+								"variable": "playerActorNr",
+								"value": "Photon.ActorNrAt(loopindex)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 380144838880782,
+							"parameters": {
+								"variable": "playerName",
+								"value": "Photon.PropertyOfActorByNr(playerActorNr, \"name\")"
+							}
+						},
+						{
+							"id": "append-text",
+							"objectClass": "SpriteFontUI",
+							"sid": 586451853322815,
+							"parameters": {
+								"text": "newline & playerName & (playerActorNr = Photon.MasterActorNr ? \" (room master)\" : \"\")"
+							}
+						}
+					],
+					"sid": 870314813407940
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "onactorleave16",
+					"objectClass": "Photon",
+					"sid": 999481446298780
+				},
+				{
+					"id": "onactorpropertieschange12",
+					"objectClass": "Photon",
+					"sid": 816445165767780
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "updatePlayersList",
+					"sid": 202495353720785
+				}
+			],
+			"sid": 814342427827656,
+			"isOrBlock": true
+		}
+	],
+	"sid": 254197325271114
+}

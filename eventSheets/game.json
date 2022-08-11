@@ -2,6 +2,169 @@
 	"name": "Game",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "Common"
+		},
+		{
+			"eventType": "variable",
+			"name": "player1Score",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 246757582968076
+		},
+		{
+			"eventType": "variable",
+			"name": "player2Score",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 187101798931130
+		},
+		{
+			"eventType": "variable",
+			"name": "gameTime",
+			"type": "number",
+			"initialValue": "30",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 794515927618653
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "SpriteFontUI",
+					"sid": 842196663178036,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 934717320145466,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "evaluate-expression",
+							"objectClass": "System",
+							"sid": 263201985987655,
+							"parameters": {
+								"value": "int(Photon.PropertyOfMyRoom(\"isStarted\"))"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "SpriteFontUI",
+							"sid": 764709320994030,
+							"parameters": {
+								"text": "int(Timer.Timer.Duration(GAME_TIME) - Timer.Timer.CurrentTime(GAME_TIME))"
+							}
+						}
+					],
+					"sid": 501285504288465
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 570232562929183
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "SpriteFontUI",
+							"sid": 634045025417213,
+							"parameters": {
+								"text": "\"Room Code: \" & Photon.MyRoomName"
+							}
+						}
+					],
+					"sid": 231296585731689
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "SpriteFontUI",
+					"sid": 992936055750756,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "2"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "SpriteFontUI",
+					"sid": 327268426824331,
+					"parameters": {
+						"text": "player1Score & \"-\" & player2Score"
+					}
+				}
+			],
+			"sid": 934000265651841
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-timer",
+					"objectClass": "Timer",
+					"sid": 229758837883293,
+					"behaviorType": "Timer",
+					"parameters": {
+						"tag": "GAME_TIME"
+					}
+				},
+				{
+					"id": "evaluate-expression",
+					"objectClass": "System",
+					"sid": 428901530441788,
+					"parameters": {
+						"value": "Functions.isRoomMaster"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "raiseevent17",
+					"objectClass": "Photon",
+					"sid": 994559333781532,
+					"parameters": {
+						"code0": "GAMEOVER_EVENT",
+						"data1": "player1Score & \";\" & player2Score",
+						"interestgroup2": "0",
+						"cache11": "donotcache",
+						"receivers15": "all",
+						"targetactors16": "\"\"",
+						"webforward19": "no"
+					}
+				}
+			],
+			"sid": 459464637489540
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Input",
@@ -854,26 +1017,6 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "variable",
-					"name": "player1Score",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": true,
-					"isConstant": false,
-					"sid": 584221424570610
-				},
-				{
-					"eventType": "variable",
-					"name": "player2Score",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": true,
-					"isConstant": false,
-					"sid": 357556278389408
-				},
-				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -889,85 +1032,11 @@
 							"sid": 869604791827098
 						},
 						{
-							"id": "connect10",
-							"objectClass": "Photon",
-							"sid": 277634057452926
-						}
-					],
-					"sid": 718789737436587
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "onjoinedlobby22",
-							"objectClass": "Photon",
-							"sid": 230822186521557
-						}
-					],
-					"actions": [
-						{
-							"id": "joinrandomroom13",
-							"objectClass": "Photon",
-							"sid": 773931115757437,
-							"parameters": {
-								"matchmyroom2": "no",
-								"matchmakingmode6": "fillroom",
-								"lobbyname7": "LOBBY_NAME",
-								"lobbytype10": "default",
-								"sqllobbyfilter11": "\"\""
-							}
-						}
-					],
-					"sid": 397765756300007
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "onjoinrandomroomnomatchfound23",
-							"objectClass": "Photon",
-							"sid": 250009516765886
-						}
-					],
-					"actions": [
-						{
-							"id": "setmyroommaxplayers107",
-							"objectClass": "Photon",
-							"sid": 746949068472966,
-							"parameters": {
-								"maxplayers0": "2"
-							}
-						},
-						{
-							"id": "createroom11",
-							"objectClass": "Photon",
-							"sid": 991484514760506,
-							"parameters": {
-								"room0": "Functions.generateRoomName(8)",
-								"lobbyname1": "LOBBY_NAME",
-								"lobbytype4": "default"
-							}
-						}
-					],
-					"sid": 914609977329409
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "onjoinroom14",
-							"objectClass": "Photon",
-							"sid": 897723932485264
-						}
-					],
-					"actions": [
-						{
 							"id": "raiseevent17",
 							"objectClass": "Photon",
-							"sid": 771747469221570,
+							"sid": 277793551250493,
 							"parameters": {
-								"code0": "JOIN_EVENT",
+								"code0": "JOIN_GAME_EVENT",
 								"data1": "0",
 								"interestgroup2": "0",
 								"cache11": "addtoroomcache",
@@ -977,15 +1046,15 @@
 							}
 						}
 					],
-					"sid": 621306925081992,
+					"sid": 718789737436587,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "compare-instance-variable",
-									"objectClass": "SpriteFont",
-									"sid": 978313543079380,
+									"objectClass": "SpriteFontUI",
+									"sid": 987371171710288,
 									"parameters": {
 										"instance-variable": "id",
 										"comparison": 0,
@@ -996,14 +1065,14 @@
 							"actions": [
 								{
 									"id": "set-text",
-									"objectClass": "SpriteFont",
-									"sid": 576162509904415,
+									"objectClass": "SpriteFontUI",
+									"sid": 494398697257595,
 									"parameters": {
 										"text": "\"Waiting for the other player\""
 									}
 								}
 							],
-							"sid": 951657119831264
+							"sid": 914990385766204
 						}
 					]
 				},
@@ -1011,41 +1080,11 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "onerror0",
-							"objectClass": "Photon",
-							"sid": 325712660995979
-						}
-					],
-					"actions": [
-						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 527527992054367,
-							"parameters": {
-								"layout": "Menu"
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 165286880147142,
-							"parameters": {
-								"type": "log",
-								"message": "\"Join Error \" & Photon.ErrorMessage"
-							}
-						}
-					],
-					"sid": 904914572247661
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "onevent3",
 							"objectClass": "Photon",
-							"sid": 330745847641091,
+							"sid": 366389276949864,
 							"parameters": {
-								"code0": "JOIN_EVENT"
+								"code0": "JOIN_GAME_EVENT"
 							}
 						},
 						{
@@ -1283,7 +1322,7 @@
 						},
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "SpriteFont",
+							"objectClass": "SpriteFontUI",
 							"sid": 221946489679612,
 							"parameters": {
 								"instance-variable": "id",
@@ -1350,7 +1389,7 @@
 							"actions": [
 								{
 									"id": "start-fade",
-									"objectClass": "SpriteFont",
+									"objectClass": "SpriteFontUI",
 									"sid": 933310311741151,
 									"behaviorType": "Fade"
 								},
@@ -1420,83 +1459,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "SpriteFont",
-							"sid": 842196663178036,
-							"parameters": {
-								"instance-variable": "id",
-								"comparison": 0,
-								"value": "1"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "SpriteFont",
-							"sid": 745474504679915,
-							"parameters": {
-								"text": "\"Room Code: \" & Photon.MyRoomName"
-							}
-						}
-					],
-					"sid": 934717320145466
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "SpriteFont",
-							"sid": 992936055750756,
-							"parameters": {
-								"instance-variable": "id",
-								"comparison": 0,
-								"value": "2"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "SpriteFont",
-							"sid": 327268426824331,
-							"parameters": {
-								"text": "player1Score & \"-\" & player2Score"
-							}
-						}
-					],
-					"sid": 934000265651841
-				},
-				{
-					"functionName": "generateRoomName",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "string",
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "length",
-							"type": "number",
-							"initialValue": "8",
-							"comment": "",
-							"sid": 851501860600863
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"type": "script",
-							"script": "runtime.setReturnValue(generateRandomName(localVars.length))"
-						}
-					],
-					"sid": 627842905611567
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "onevent3",
 							"objectClass": "Photon",
 							"sid": 295246249578772,
@@ -1506,7 +1468,7 @@
 						},
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "SpriteFont",
+							"objectClass": "SpriteFontUI",
 							"sid": 241935022292952,
 							"parameters": {
 								"instance-variable": "id",
@@ -1536,7 +1498,7 @@
 						},
 						{
 							"id": "set-text",
-							"objectClass": "SpriteFont",
+							"objectClass": "SpriteFontUI",
 							"sid": 759493923758459,
 							"parameters": {
 								"text": "\"Starting in 3\""
@@ -1552,7 +1514,7 @@
 						},
 						{
 							"id": "set-text",
-							"objectClass": "SpriteFont",
+							"objectClass": "SpriteFontUI",
 							"sid": 365647460691172,
 							"parameters": {
 								"text": "\"Starting in 2\""
@@ -1568,7 +1530,7 @@
 						},
 						{
 							"id": "set-text",
-							"objectClass": "SpriteFont",
+							"objectClass": "SpriteFontUI",
 							"sid": 441138782549931,
 							"parameters": {
 								"text": "\"Starting in 1\""
@@ -1580,6 +1542,83 @@
 							"sid": 969711866738394,
 							"parameters": {
 								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "SpriteFontUI",
+							"sid": 726951487248807,
+							"parameters": {
+								"text": "\"Start\""
+							}
+						},
+						{
+							"id": "set-fade-in-time",
+							"objectClass": "SpriteFontUI",
+							"sid": 117487569737391,
+							"behaviorType": "Fade",
+							"parameters": {
+								"fade-in-time": "0"
+							}
+						},
+						{
+							"id": "set-wait-time",
+							"objectClass": "SpriteFontUI",
+							"sid": 746961533342962,
+							"behaviorType": "Fade",
+							"parameters": {
+								"wait-time": "0"
+							}
+						},
+						{
+							"id": "set-fade-out-time",
+							"objectClass": "SpriteFontUI",
+							"sid": 460229546794406,
+							"behaviorType": "Fade",
+							"parameters": {
+								"fade-out-time": "1"
+							}
+						},
+						{
+							"id": "start-fade",
+							"objectClass": "SpriteFontUI",
+							"sid": 758646806249354,
+							"behaviorType": "Fade"
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 323811166343302,
+							"parameters": {
+								"object-to-create": "Ball",
+								"layer": "0",
+								"x": "LayoutWidth/2",
+								"y": "LayoutHeight/2",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "Timer",
+							"sid": 301836290624345,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "gameTime",
+								"type": "once",
+								"tag": "GAME_TIME"
+							}
+						},
+						{
+							"id": "setpropertyofmyroom103",
+							"objectClass": "Photon",
+							"sid": 357212403815866,
+							"parameters": {
+								"propname0": "\"isStarted\"",
+								"value1": "1",
+								"webforward4": "no",
+								"checkandset7": "no",
+								"expectedvalue8": "0"
 							}
 						}
 					],
@@ -1615,70 +1654,9 @@
 									"parameters": {
 										"state": "enabled"
 									}
-								},
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 571698829044276,
-									"parameters": {
-										"object-to-create": "Ball",
-										"layer": "0",
-										"x": "LayoutWidth/2",
-										"y": "LayoutHeight/2",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
 								}
 							],
 							"sid": 437111290651938
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "set-text",
-									"objectClass": "SpriteFont",
-									"sid": 223169648070464,
-									"parameters": {
-										"text": "\"Start\""
-									}
-								},
-								{
-									"id": "set-fade-in-time",
-									"objectClass": "SpriteFont",
-									"sid": 481036342138358,
-									"behaviorType": "Fade",
-									"parameters": {
-										"fade-in-time": "0"
-									}
-								},
-								{
-									"id": "set-wait-time",
-									"objectClass": "SpriteFont",
-									"sid": 692161416543135,
-									"behaviorType": "Fade",
-									"parameters": {
-										"wait-time": "0"
-									}
-								},
-								{
-									"id": "set-fade-out-time",
-									"objectClass": "SpriteFont",
-									"sid": 198140596250608,
-									"behaviorType": "Fade",
-									"parameters": {
-										"fade-out-time": "1"
-									}
-								},
-								{
-									"id": "start-fade",
-									"objectClass": "SpriteFont",
-									"sid": 651982951362764,
-									"behaviorType": "Fade"
-								}
-							],
-							"sid": 581175346552834
 						}
 					]
 				},
@@ -1702,6 +1680,69 @@
 						}
 					],
 					"sid": 340112522850287
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onevent3",
+							"objectClass": "Photon",
+							"sid": 567218238809924,
+							"parameters": {
+								"code0": "GAMEOVER_EVENT"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "SpriteFontUI",
+							"sid": 380477385546283,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "SpriteFontUI",
+							"sid": 377235983739854,
+							"parameters": {
+								"opacity": "100"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "SpriteFontUI",
+							"sid": 832873656650292,
+							"parameters": {
+								"text": "tokenat(Photon.EventData, 0, \";\") = tokenat(Photon.EventData, 1, \";\") ? \"Draw\" : (tokenat(Photon.EventData, 0, \";\") > tokenat(Photon.EventData, 1, \";\") ? \"Player 1 won\" : \"Player 2 won\")"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 429647071054611,
+							"parameters": {
+								"seconds": "5"
+							}
+						},
+						{
+							"id": "disconnect14",
+							"objectClass": "Photon",
+							"sid": 190309041358351
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 841571183150684,
+							"parameters": {
+								"layout": "Menu"
+							}
+						}
+					],
+					"sid": 369885354291643
 				}
 			],
 			"sid": 942916712965782

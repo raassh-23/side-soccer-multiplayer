@@ -1,0 +1,31 @@
+{
+	"name": "Utils",
+	"events": [
+		{
+			"functionName": "generateName",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "length",
+					"type": "number",
+					"initialValue": "8",
+					"comment": "",
+					"sid": 851501860600863
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"script": "runtime.setReturnValue(generateRandomName(localVars.length))"
+				}
+			],
+			"sid": 627842905611567
+		}
+	],
+	"sid": 614172374804794
+}

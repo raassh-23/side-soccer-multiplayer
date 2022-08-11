@@ -105,7 +105,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "JOIN_EVENT",
+			"name": "JOIN_ROOM_EVENT",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
@@ -115,9 +115,29 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "SET_POSITION_EVENT",
+			"name": "JOIN_GAME_EVENT",
 			"type": "number",
 			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 599780946205817
+		},
+		{
+			"eventType": "variable",
+			"name": "START_GAME_EVENT",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 451001185943366
+		},
+		{
+			"eventType": "variable",
+			"name": "SET_POSITION_EVENT",
+			"type": "number",
+			"initialValue": "3",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": true,
@@ -127,7 +147,7 @@
 			"eventType": "variable",
 			"name": "KICK_EVENT",
 			"type": "number",
-			"initialValue": "2",
+			"initialValue": "4",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": true,
@@ -135,23 +155,37 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "START_GAME_EVENT",
-			"type": "number",
-			"initialValue": "3",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": true,
-			"sid": 732943180202761
-		},
-		{
-			"eventType": "variable",
 			"name": "GOAL_EVENT",
 			"type": "number",
-			"initialValue": "4",
+			"initialValue": "5",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": true,
 			"sid": 101537710071319
+		},
+		{
+			"eventType": "variable",
+			"name": "GAMEOVER_EVENT",
+			"type": "number",
+			"initialValue": "6",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 989434733734681
+		},
+		{
+			"eventType": "comment",
+			"text": "Timer"
+		},
+		{
+			"eventType": "variable",
+			"name": "GAME_TIME",
+			"type": "string",
+			"initialValue": "game_time",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 725860848738207
 		}
 	],
 	"sid": 390902130002869
